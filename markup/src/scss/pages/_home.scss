@@ -1,0 +1,350 @@
+.visual {
+    position: relative;
+    min-height: 100vh;
+    background-size: cover;
+    color: $white;
+    padding: 50px 0;
+    font-size: 20px;
+
+    @include breakpoint(large) {
+        min-height: calc(100vh - 150px);
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: rgba($primary-color, 0.3);
+    }
+
+    .holder {
+        z-index: 1;
+        position: relative;
+    }
+
+    .text {
+        margin-bottom: 30px;
+
+        @include breakpoint(large) {
+            margin-bottom: 50px;
+        }
+    }
+
+    h1 {
+        text-transform: uppercase;
+        font-weight: 500;
+        margin-bottom: rem-calc(13);
+    }
+
+
+    .form-block {
+        background: $primary-color;
+        padding: 20px 10px;
+
+        @include breakpoint(medium) {
+            padding: 30px 20px;
+        }
+
+        input {
+            @include breakpoint(medium) {
+                margin-bottom: 0;
+            }
+        }
+
+    }
+
+    .button {
+        margin-bottom: 0;
+        text-transform: uppercase;
+        width: 100%;
+
+    }
+
+}
+
+.service-section {
+    h1 {
+        margin-bottom: 15px;
+    }
+
+    [class^="cell"] {
+        margin-bottom: 30px;
+    }
+
+    .icon-block{
+        margin-bottom: 32px;
+        img{
+            margin: 0;
+        }
+    }
+
+    .icon,
+    [class^="fa"] {
+        font-size: 60px;
+        color: $primary-color;
+        display: inline-block;
+        vertical-align: top;
+
+        @include breakpoint(medium) {
+            font-size: 74px;
+        }
+    }
+
+    .button {
+        margin-top: 15px;
+    }
+
+    h3{
+        font-weight: 600;
+    }
+}
+
+.info-section {
+    color: $white;
+
+    .box {
+        min-height: 25vw;
+        background-size: cover;
+        background-position: 50% 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+
+        &:hover,
+        &:focus {
+            .info-text {
+                opacity: 1;
+            }
+
+            .overlay {
+                opacity: $overlay-opacity;
+            }
+        }
+    }
+
+    .info-text {
+        position: relative;
+        z-index: 1;
+        padding: 10%;
+        opacity: 0;
+        transition: opacity $animation-speed ease-in-out;
+    }
+
+    .icon,
+    [class^="fa"] {
+        font-size: 60px;
+        display: inline-block;
+        vertical-align: top;
+        margin-bottom: 32px;
+
+        @include breakpoint(medium) {
+            font-size: 74px;
+
+        }
+    }
+
+    .overlay {
+        opacity: 0;
+        transition: opacity $animation-speed ease-in-out;
+    }
+}
+
+.icons-section {
+    .grid-icons {
+        display: grid;
+        grid-template-columns: 60px 1fr;
+        grid-gap: 10px;
+        margin-bottom: 20px;
+
+        @include breakpoint(medium) {
+            margin-bottom: 54px;
+        }
+    }
+
+    .icon,
+    [class^="fa"] {
+        display: inline-block;
+        vertical-align: top;
+        color: $primary-color;
+        font-size: 45px;
+
+    }
+
+    p {
+        margin: 0;
+    }
+}
+
+.advantages-section {
+    text-align: center;
+
+    h3 {
+        margin-bottom: rem-calc(15);
+
+    }
+
+    .box {
+        background-size: cover;
+        background-position: 50% 50%;
+        position: relative;
+        color: $white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px 20px;
+
+        @include breakpoint(large) {
+            min-height: 420px;
+        }
+
+    }
+
+
+    .info-text {
+        position: relative;
+        z-index: 1;
+        max-width: 390px;
+        width: 100%;
+
+    }
+
+
+    .more {
+        text-transform: uppercase;
+        display: inline-block;
+        vertical-align: top;
+        text-decoration: underline;
+        color: inherit;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+.video-wrap {
+    position: relative;
+    margin-bottom: 20px;
+
+    @include breakpoint(medium) {
+        margin: 0;
+    }
+
+
+    .play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 65px;
+        color: $white;
+
+        &:hover {
+            color: $primary-color;
+        }
+    }
+}
+
+.banner-carousel  {
+    position: relative;
+    color: $white;
+    font-size: 25px;
+
+    .center-holder {
+        background-size: cover;
+        padding: 40px 0;
+
+        @include breakpoint(medium) {
+            min-height: 300px;
+        }
+
+        @include breakpoint(large) {
+            font-size: 35px;
+            min-height: 500px;
+        }
+    }
+
+    .grid-container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .orbit-previous,
+    .orbit-next {
+        color: rgba($white, .5);
+
+        @include breakpoint(medium) {
+            font-size: 35px;
+        }
+
+        @include breakpoint(large) {
+            font-size: 69px;
+        }
+    }
+
+    h1 {
+        margin: 0;
+    }
+
+    p {
+        margin-bottom: $custom-margin;
+    }
+
+}
+
+.banner{
+    position: relative;
+    color: $white;
+    font-size: 25px;
+    background-size: cover;
+    padding: 40px 0;
+
+    @include breakpoint(medium) {
+        min-height: 300px;
+    }
+
+    @include breakpoint(large) {
+        font-size: 35px;
+        min-height: 500px;
+    }
+
+    .grid-container {
+        position: relative;
+        z-index: 1;
+    }
+
+    h1 {
+        margin: 0;
+    }
+
+    p {
+        margin-bottom: $custom-margin;
+    }
+
+}
+
+
+.subscribe-banner-form {
+    max-width: 646px;
+    margin: 0 auto;
+
+    .holder {
+
+        @include breakpoint(medium) {
+            grid-template-columns: 1fr max-content;
+            grid-gap: $custom-margin;
+            display: grid;
+        }
+    }
+
+    input {
+        @include breakpoint(medium) {
+            margin-bottom: 0;
+        }
+    }
+}

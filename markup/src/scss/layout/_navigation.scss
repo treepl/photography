@@ -1,0 +1,44 @@
+.top-bar{
+    color: $top-bar-color;
+
+    &.nav-top{
+        padding: 0;
+    }
+}
+.navigation{ 
+    width: 100%;
+    font-weight: 400;
+    padding: 20px 0;
+    
+    @include breakpoint(large) {
+        padding: 0;
+    }
+
+    
+    >ul>li>a{
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+
+    ul ul{
+        @include breakpoint(large) {
+            display: none;
+        } 
+    }
+
+    .dropdown.menu > li > a{
+        padding-left: 2.9em;
+        padding-right: 2.9em;
+    }
+
+    .menu .menu{
+       
+        @include breakpoint(large) {
+            box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
+        }
+       
+        li:not(:last-child){
+            border-bottom: 1px solid $white;
+        }
+    }
+}

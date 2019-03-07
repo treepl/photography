@@ -1,0 +1,76 @@
+h1,
+.h1 {
+    // font-weight: 500;
+}
+
+h2,
+.h2 {
+    font-weight: 300;
+}
+
+h3,
+.h3{
+    font-weight: 500;
+    text-transform: uppercase; 
+}
+
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+ 
+blockquote{
+    font-style: italic; 
+    max-width: 750px;
+    margin: 46px auto 36px;
+}
+
+.is-active > .accordion-title::before{
+    content: '\e90c';
+}
+
+.accordion-title{
+    
+    padding-left: rem-calc(57);
+
+    &:before {
+        font-family: "icomoon" !important;
+        content: '\e911';
+        position: absolute;
+        top: 50%;
+        left: 1.15rem;
+        margin-top: -0.5rem;
+        color: $secondary-color;
+    }
+
+    
+    &:hover{
+        color: inherit;
+    }
+
+
+}
+
+.accordion,
+.tabs-content{
+    margin-bottom: $custom-margin;
+}
+
+.custom-list{
+    @extend %listreset;
+
+    li{
+        padding: 0 0 14px 22px;
+        position: relative;
+        &:before{
+            @include size(10px);
+            content:"";
+            background: $secondary-color;
+            border-radius: 50%;
+            position: absolute;
+            top: 10px;
+            left: 0;
+            
+        }
+    }
+}

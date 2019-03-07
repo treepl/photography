@@ -1,0 +1,57 @@
+.contact-form {
+
+    [type='text'],
+    [type='password'],
+    [type='date'],
+    [type='datetime'],
+    [type='datetime-local'],
+    [type='month'],
+    [type='week'],
+    [type='email'],
+    [type='number'],
+    [type='search'],
+    [type='tel'],
+    [type='time'],
+    [type='url'],
+    [type='color'],
+    textarea,
+    .captcha-holder{
+        margin-bottom: 15px; 
+    }
+
+     textarea {
+        height: 120px;
+        min-height: 120px;
+    }
+
+}
+
+.service-info.contact {
+
+    dt {
+        padding-right: 4px;
+    }
+
+    dd {
+        @include breakpoint(medium) {
+            margin-bottom: 19px;
+        }
+    }
+
+    .icon {
+        color: $primary-color;
+        padding-top: 3px;
+        margin-right: 9px;
+        vertical-align: top;
+    }
+
+    a {
+        color: inherit;
+    }
+}
+
+.map-container {
+    max-width: 100%;
+    overflow: hidden;
+    margin-bottom: 21px;
+}

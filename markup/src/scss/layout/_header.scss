@@ -1,0 +1,178 @@
+[id="header"] {
+	z-index: 3;
+
+	.menu a {
+		line-height: 1.5;
+	}
+}
+
+.login-bar {
+	background: $primary-color;
+	padding: 8px 0 9px;
+}
+
+.login-nav {
+	@extend %listreset;
+	font-size: 14px;
+	display: flex;
+	justify-content: flex-end;
+
+	li {
+		// margin: 0 10px;  
+
+		&:not(:first-child) {
+			&:before {
+				content: "/";
+				color: $white;
+				display: inline-block;
+				vertical-align: top;
+				margin: 0 3px;
+
+			}
+		}
+	}
+
+	a {
+		color: $white;
+	}
+}
+
+.header-area {
+	z-index: 3;
+
+	.holder {
+		background: $header-background;
+		box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+
+	} 
+
+	.active:not(.is-submenu-item)>a {
+		@include breakpoint(large) {
+			color: $primary-color;
+		}
+	} 
+
+	a {
+		color: inherit;
+	}
+}
+
+.top-bar {
+	width: 100%;
+	flex-wrap: wrap;
+
+	@include breakpoint(large) {
+		width: auto;
+		flex-wrap: nowrap;
+	}
+
+	.menu-icon {
+		margin-right: 40px;
+	}
+
+	&.main-top-bar {
+		@include breakpoint(large) {
+			min-height: 110px;
+		}
+	}
+
+
+}
+
+.title-bar{
+	position: relative;
+}
+
+.searchbar {
+	position: absolute;
+	top:50%;
+	right: 20px;
+	width: auto;
+	transform: translateY(-50%);
+
+	@include breakpoint(large) {
+		position: relative;
+		top: auto;
+		right: auto;
+		transform: translateY(0);
+		margin: 0 0 0 35px;
+	}
+
+
+	.search-field {
+		width: 0;
+		height: 35px;
+		margin-left: 1rem;
+		padding: 0;
+		border-radius: 50px;
+		border: none;
+		transition: all 0.5s ease;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		right: 100%;
+		font-size: 14px;
+
+		@include breakpoint(medium) {
+			height: 40px;
+			font-size: 1rem;
+		}
+	}
+
+	.expand-search+.input-group-button {
+		.opener {
+			display: none;
+		}
+
+		.btn {
+			display: inline-block;
+			color: #000;
+		}
+	}
+
+	.expand-search {
+		width: 150px;
+		border: 1px solid #c9c9c9;
+		padding: .5rem;
+		
+		@include breakpoint(medium) {
+			width: 200px;
+		}
+
+
+	}
+
+	svg {
+		width: 15px;
+		height: 15px;
+
+	}
+
+	.btn {
+		display: none;
+	}
+
+	.search {
+		width: 15px;
+		cursor: pointer;
+		line-height: 1;
+	}
+
+
+	.search-ico {
+		fill: #000;
+	}
+
+	.button {
+		border-radius: 50px;
+	}
+
+
+}
+
+.logo {
+	img {
+		max-height: 50px;
+		max-width: 200px;
+	}
+}

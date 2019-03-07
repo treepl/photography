@@ -1,0 +1,134 @@
+[id="footer"] {
+    background: $footer-bg;
+    color: $footer-color;
+
+    .cell {
+        margin-bottom: 20px;
+
+        @include breakpoint(large) {
+            margin-bottom: 0;
+        }
+    }
+
+    .text {
+        font-size: rem-calc(14);
+    }
+
+    h3 {
+        text-transform: uppercase;
+        margin-bottom: 17px;
+    }
+
+    a {
+        color: inherit;
+
+        &:hover {
+            color: $primary-color;
+        }
+    }
+
+    footer {
+        background: $bottom-footer-bg;
+        color: $bottom-footer-color;
+    }
+
+}
+
+.aside{
+    padding-top:  $section-indent;
+    padding-bottom: 31px;
+}
+
+.add-nav {
+    ul {
+        @extend %listreset;
+    }
+
+    li{
+        margin-bottom: 7px;
+    }
+}
+
+.service-info {
+    @extend %listreset;
+    
+
+    dt {
+        position: relative;
+        padding: 0 10px 0 0;
+        float: left;
+        clear: left;
+        font-weight: 400;
+    }
+
+    dd {
+        overflow: hidden;
+        margin: 0 0 10px;
+        word-wrap: break-word;
+
+        @include breakpoint(medium) {
+            margin-bottom: 24px;
+        }
+    }
+
+    .icon {
+        display:inline-block;
+        vertical-align:middle;
+        font-size: 18px;
+    }
+
+    address {
+        font-style: normal;
+    }
+}
+
+.newsletter-form {
+
+    input[type="text"],
+    input[type="email"] {
+        background: #6c6b6b;
+        color: $white;
+        margin-bottom: 20px;
+    }
+
+    .button {
+        width: 100%;
+    }
+
+}
+
+
+.footer-hold {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 25px;
+    padding-bottom: 25px;
+
+    @include breakpoint(medium) {
+        justify-content: space-between;
+
+    }
+
+
+
+    .social-networks {
+        order: -1;
+        width: 100%;
+
+        @include breakpoint(medium) {
+            order: 1;
+            width: auto;
+            margin-left: 10px;
+            margin-right: -10px;  
+        }
+
+        a {
+            color: $primary-color;
+        }
+    }
+
+
+    p {
+        margin: 0;
+    }
+}
