@@ -57,27 +57,27 @@
 	}
 }
 
-.top-bar {
-	width: 100%;
-	flex-wrap: wrap;
+// .top-bar {
+// 	width: 100%;
+// 	flex-wrap: wrap;
 
-	@include breakpoint(large) {
-		width: auto;
-		flex-wrap: nowrap;
-	}
+// 	@include breakpoint(large) {
+// 		width: auto;
+// 		flex-wrap: nowrap;
+// 	}
 
-	.menu-icon {
-		margin-right: 40px;
-	}
+// 	.menu-icon {
+// 		margin-right: 40px;
+// 	}
 
-	&.main-top-bar {
-		@include breakpoint(large) {
-			min-height: 110px;
-		}
-	}
+// 	&.main-top-bar {
+// 		@include breakpoint(large) {
+// 			min-height: 110px;
+// 		}
+// 	}
 
 
-}
+// }
 
 .title-bar{
 	position: relative;

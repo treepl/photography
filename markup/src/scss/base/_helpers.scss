@@ -28,14 +28,16 @@
 %justify {
 	text-align: justify;
 	font-size: 1px;
-	line-height: 0px; 
-	> * {
+	line-height: 0px;
+
+	>* {
 		display: inline-block;
 		vertical-align: top;
 		text-align: left;
 		// font-size: $base-font-size;
 		// line-height: $base-line-height;
 	}
+
 	&:after {
 		content: '';
 		width: 100%;
@@ -52,8 +54,9 @@
 /// * 2. Add ellipsis at the end of the line.
 
 .ellipsis {
-	white-space: nowrap; /* 1 */
-	text-overflow: ellipsis; /* 2 */
+	white-space: nowrap;
+	/* 1 */
+	text-overflow: ellipsis;
+	/* 2 */
 	overflow: hidden;
 }
-

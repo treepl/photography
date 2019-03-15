@@ -2,7 +2,7 @@
 
 @import 'settings';
 @import 'bower_components/foundation-sites/scss/foundation';
-@import 'bower_components/motion-ui/motion-ui';
+@import 'bower_components/motion-ui/motion-ui'; 
 
 @import 'base/mixins';
 @import 'base/helpers';
@@ -77,28 +77,28 @@ $global-flexbox: true;
 @import 'vendors/icomoon'; 
 @import 'vendors/fancybox';
 
-
+ 
 @import 'components/buttons';
 
-@import 'layout/header';
-@import 'layout/navigation';
-@import 'layout/common';
-@import 'layout/sidebar';
-@import 'layout/footer';
+@import 'layout/header'; 
+// @import 'layout/navigation';
+// @import 'layout/common';
+// @import 'layout/sidebar';
+// @import 'layout/footer';
 
  
 
 
-@import 'pages/home'; 
-@import 'pages/blogs'; 
+// @import 'pages/home'; 
+// @import 'pages/blogs'; 
 
-@import 'pages/modules/galleries'; 
-@import 'pages/modules/team'; 
-@import 'pages/modules/portfolio';
-
-
+// @import 'pages/modules/galleries'; 
+// @import 'pages/modules/team'; 
+// @import 'pages/modules/portfolio';
 
 
-@import 'pages/contact'; 
-@import 'pages/coming-soon'; 
-@import 'pages/thank-you'; 
+
+
+// @import 'pages/contact'; 
+// @import 'pages/coming-soon'; 
+// @import 'pages/thank-you'; 
