@@ -65,7 +65,7 @@
 // 1. Global
 // ---------
 
-$global-font-size: 100%;
+$global-font-size:  rem-calc(15);
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
@@ -75,14 +75,14 @@ $foundation-palette: (
   warning: #f5c85b,
   alert: #e75160,
 );
-$light-gray: #e6e6e6;
+$light-gray: #f3f3f3;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
-$black: #0a0a0a;
+$black: #222;
 $white: #fff;
 $body-background: $white;
 $body-font-color: $black;
-$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+$body-font-family:'Montserrat', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
@@ -112,7 +112,7 @@ $breakpoints: (
   xxlarge: 1440px,
 );
 $print-breakpoint: large;
-$breakpoint-classes: (small medium large);
+$breakpoint-classes: (small medium large xlarge);
 
 // 3. The Grid
 // -----------
@@ -147,12 +147,12 @@ $header-styles: (
     'h6': ('font-size': 16),
   ),
   medium: (
-    'h1': ('font-size': 48),
-    'h2': ('font-size': 40),
-    'h3': ('font-size': 31),
-    'h4': ('font-size': 25),
-    'h5': ('font-size': 20),
-    'h6': ('font-size': 16),
+    'h1': ('font-size': 50),
+    'h2': ('font-size': 35),
+    'h3': ('font-size': 30),
+    'h4': ('font-size': 20),
+    'h5': ('font-size': 18),
+    'h6': ('font-size': 13),
   ),
 );
 $header-text-rendering: optimizeLegibility;
@@ -183,11 +183,11 @@ $list-nested-side-margin: 1.25rem;
 $defnlist-margin-bottom: 1rem;
 $defnlist-term-weight: $global-weight-bold;
 $defnlist-term-margin-bottom: 0.3rem;
-$blockquote-color: $dark-gray;
-$blockquote-padding: rem-calc(9 20 0 19);
-$blockquote-border: 1px solid $medium-gray;
-$cite-font-size: rem-calc(13);
-$cite-color: $dark-gray;
+$blockquote-color: inherit;
+$blockquote-padding: 0;
+$blockquote-border: none;
+$cite-font-size: inherit;
+$cite-color: $secondary-color;
 $cite-pseudo-content: '\2014 \0020';
 $keystroke-font: $font-family-monospace;
 $keystroke-color: $black;
@@ -374,12 +374,12 @@ $dropdown-padding: 1rem;
 $dropdown-background: $body-background;
 $dropdown-border: 1px solid $medium-gray;
 $dropdown-font-size: 1rem;
-$dropdown-width: 300px;
+$dropdown-width: 160px;
 $dropdown-radius: $global-radius;
 $dropdown-sizes: (
   tiny: 100px,
   small: 200px,
-  large: 400px,
+  large: 1600px,
 );
 
 // 18. Dropdown Menu
@@ -387,12 +387,12 @@ $dropdown-sizes: (
 
 $dropdownmenu-arrows: true;
 $dropdownmenu-arrow-color: $anchor-color;
-$dropdownmenu-arrow-size: 6px;
+$dropdownmenu-arrow-size: 0;
 $dropdownmenu-arrow-padding: 1.5rem;
-$dropdownmenu-min-width: 200px;
+$dropdownmenu-min-width: 160px;
 $dropdownmenu-background: $white;
 $dropdownmenu-submenu-background: $dropdownmenu-background;
-$dropdownmenu-padding: $global-menu-padding;
+$dropdownmenu-padding:1rem 1rem;
 $dropdownmenu-nested-margin: 0;
 $dropdownmenu-submenu-padding: $dropdownmenu-padding;
 $dropdownmenu-border: 1px solid $medium-gray;
@@ -881,6 +881,9 @@ $header-background: $white;
  // 59. General blocks
 // -----------
 
+
+$background-blocks:$light-gray;
+
 $section-indent: 50px;
 $icons-font: "Font Awesome 5 Free", "Font Awesome 5 Regular", "Font Awesome 5 Solid", "Font Awesome\ 5 Brands", 'Font Awesome 5 Pro' ;
 
@@ -895,3 +898,7 @@ $footer-bg: $dark-gray;
 
 // $bottom-footer-bg:$concrete;
 $bottom-footer-color:$dark-gray;
+
+
+$figure-paddings-small:  rem-calc(20px);
+$figure-paddings:  rem-calc(31px);

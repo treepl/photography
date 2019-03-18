@@ -5,15 +5,10 @@
     flex-direction: column;
 }
 
-#main{
+#main {
     flex: 1;
 }
 
-.button.secondary {
-    &:hover {
-        background-color: #70ab00;
-    }
-}
 
 .section-h {
     padding: $home-section-indent / 2 0;
@@ -27,6 +22,11 @@
     }
 }
 
+.section-heading{
+    text-align: center;
+    margin-bottom: rem-calc(40px);
+}
+
 .section,
 .content {
     padding: $section-indent / 2 0;
@@ -36,27 +36,10 @@
     }
 }
 
-.content{
+.content {
     img {
-        margin-bottom:  rem-calc(24px);
+        margin-bottom: rem-calc(24px);
     }
-}
-
-
-.section-heading {
-    text-align: center;
-    margin-bottom: rem-calc(20px);
-    font-size: 20px;
-
-    @include breakpoint(medium) {
-        margin-bottom: rem-calc(50px);
-    }
-
-}
-
-.title-page {
-    text-transform: uppercase;
-    text-align: center;
 }
 
 .bg-block {
@@ -69,204 +52,135 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background: $overlay-color;
-    opacity: $overlay-opacity;
+    // background: $overlay-color;
+    // opacity: $overlay-opacity;
 }
 
-.social-networks {
-    @extend %listreset;
-    font-size: 0;
-    line-height: 0;
-
-    li {
-        display: inline-block;
-        vertical-align: top;
-        font-size: 23px;
-        line-height: 1;
-        margin: 0 8px 10px 9px;
-    }
-
-    i {
-        display: inline-block;
-        vertical-align: top;
-    }
-}
-
-.map-holder {
+figure {
     position: relative;
-    overflow: hidden;
-    height: 200px;
-
-    @include breakpoint(medium) {
-        height: 300px;
-    }
+    display:inline-block;
+    vertical-align:top;
+    padding: rem-calc($figure-paddings-small 0 0 $figure-paddings-small);
+    margin-bottom: rem-calc(30px);
 
     @include breakpoint(large) {
-        height: 500px;
+    padding: rem-calc($figure-paddings 0 0 $figure-paddings);
     }
 
-    .google-map-holder {
-        width: 100vw;
-        height: 100%;
+    &:before {
+        content: "";
         position: absolute;
-        left: 50%;
         top: 0;
-        transform: translateX(-50%);
-    }
-
-    iframe{
-        width: 100%;
-        height: 100%;
-    }
-}
-
-.share-this{
-    padding-top: 25px;
-    margin-bottom: 25px;
-    display: flex;
-    align-items: flex-end;
-    flex-wrap: wrap;
-
-    @include breakpoint(medium) {
-        margin-bottom: 0;
-    }
-
-    .title{
-        font-weight: 400; 
-    }
-
-    .social-networks{
-        li{
-            margin-bottom: 5px;
-        }
-    }
-}
-
-.full-width-container{
-    position: relative;
-    width: 100vw;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.list{
-    @extend %listreset;
-    max-width: 640px;
-    margin: 0 auto 20px;
-
-    li{
-        position: relative;
-        padding-left: 30px;
-        padding-bottom: 14px;
-        
-        @include breakpoint(large) {
-            padding-left: 41px;
-
-        }
-    }
-
-    .fa{
-        color: $secondary-color;
-        position: absolute;
-        top: 12px;  
         left: 0;
+        right: $figure-paddings-small;
+        bottom: $figure-paddings-small;
+        border: 1px solid $secondary-color;
 
-        @include breakpoint(large) { 
-            font-size: 20px;
-        }
-    }
-}
-
-
-.system-404{
-    text-align: center;
-
-    .text{
         @include breakpoint(large) {
-            padding-bottom: $custom-margin;
+            right: $figure-paddings;
+            bottom: $figure-paddings;
         }
-    }
-    h1{
-        font-weight: 700;
-        font-size: 80px;
-
-        @include breakpoint(medium) {
-            font-size: 120px;
-        }
-        
-        @include breakpoint(large) {
-            font-size: 290px;
-            line-height: 1;
-            margin-bottom: $custom-margin;
-        }
-    }
-
-    h2{
-        text-transform: uppercase;
-        margin-bottom: 15px;
-        font-weight: 400;
     }
 }
 
-.search-result{
-    margin: 0 0 36px;
+// .social-networks {
+//     @extend %listreset;
+//     font-size: 0;
+//     line-height: 0;
 
-    h3{
-        text-transform:none;
-        border-bottom:1px solid $body-font-color;
-        padding: 0 0 7px;
-        margin: 0 0 10px;
-        font-weight: 400; 
-       
-        a{
-            color: inherit;
-        }
-        
-    }
-}
+//     li {
+//         display: inline-block;
+//         vertical-align: top;
+//         font-size: 23px;
+//         line-height: 1;
+//         margin: 0 8px 10px 9px;
+//     }
+
+//     i {
+//         display: inline-block;
+//         vertical-align: top;
+//     }
+// }
+
+// .map-holder {
+//     position: relative;
+//     overflow: hidden;
+//     height: 200px;
+
+//     @include breakpoint(medium) {
+//         height: 300px;
+//     }
+
+//     @include breakpoint(large) {
+//         height: 500px;
+//     }
+
+//     .google-map-holder {
+//         width: 100vw;
+//         height: 100%;
+//         position: absolute;
+//         left: 50%;
+//         top: 0;
+//         transform: translateX(-50%);
+//     }
+
+//     iframe{
+//         width: 100%;
+//         height: 100%;
+//     }
+// }
 
 
-.pagination{
+
+// .full-width-container{
+//     position: relative;
+//     width: 100vw;
+//     left: 50%;
+//     transform: translateX(-50%);
+// }
+
+
+
+.pagination {
     text-align: center;
 
     .active a,
-    .active a:hover{
+    .active a:hover {
         padding: 0;
         color: $white;
         pointer-events: none;
     }
 
-    .prev{
+    .prev {
         @extend .pagination-previous;
     }
 
-    .next{
+    .next {
         @extend .pagination-next;
     }
 }
 
 
-.loaded-block{
-    &:after{
-      content:""; 
-      position: fixed;
-      background-color: $white;
-      background-image: url(../images/loading-img.gif);  
-      background-position: 50% 50%;
-      background-repeat: no-repeat;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 9999999;
-      transition: opacity 0.2s, visibility 0.2s, top 0s 0.2s, left 0s 0.2s;
-  
-      .loaded &{
-        opacity: 0;
-        visibility: hidden;
-        top: -9999px;
-        left: -99999px;
-      }
+.loaded-block {
+    &:after {
+        content: "";
+        position: fixed;
+        background-color: $white;
+        background-image: url(../images/loading-img.gif);
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999999;
+        transition: opacity 0.2s, visibility 0.2s, top 0s 0.2s, left 0s 0.2s;
+
+        .loaded & {
+            opacity: 0;
+            visibility: hidden;
+            top: -9999px;
+            left: -99999px;
+        }
     }
-  }
-  
+}

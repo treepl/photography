@@ -81,15 +81,15 @@ $global-flexbox: true;
 @import 'components/buttons';
 
 @import 'layout/header'; 
-// @import 'layout/navigation';
-// @import 'layout/common';
+@import 'layout/navigation';
+@import 'layout/common';
 // @import 'layout/sidebar';
 // @import 'layout/footer';
 
  
 
 
-// @import 'pages/home'; 
+@import 'pages/home'; 
 // @import 'pages/blogs'; 
 
 // @import 'pages/modules/galleries'; 
