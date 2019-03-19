@@ -46,6 +46,10 @@
     background: $background-blocks;
 }
 
+.masonry{
+    align-items: flex-start;
+}
+
 .overlay {
     position: absolute;
     top: 0;

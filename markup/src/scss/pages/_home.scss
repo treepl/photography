@@ -25,24 +25,24 @@
 
     h1 {
         text-transform: uppercase;
-        
+
         position: relative;
         padding-bottom: 54px;
         margin: 0;
 
-        &:after{
-            content:"";
+        &:after {
+            content: "";
             position: absolute;
             height: 5px;
             bottom: 27px;
-            left: 50%; 
+            left: 50%;
             width: 70px;
             transform: translateX(-50%);
             background: $secondary-color;
         }
     }
 
-    .h2{
+    .h2 {
         text-transform: uppercase;
     }
 
@@ -72,286 +72,99 @@
 
 }
 
-.service-section {
-    h1 {
-        margin-bottom: 15px;
+.img-section {
+
+    .masonry{
+        padding-bottom:22px;
     }
-
-    [class^="cell"] {
-        margin-bottom: 30px;
-    }
-
-    .icon-block{
-        margin-bottom: 32px;
-        img{
-            margin: 0;
-        }
-    }
-
-    .icon,
-    [class^="fa"] {
-        font-size: 60px;
-        color: $primary-color;
-        display: inline-block;
-        vertical-align: top;
-
-        @include breakpoint(medium) {
-            font-size: 74px;
-        }
-    }
-
-    .button {
-        margin-top: 15px;
-    }
-
-    h3{
-        font-weight: 600;
-    }
-}
-
-.info-section {
-    color: $white;
-
-    .box {
-        min-height: 25vw;
-        background-size: cover;
-        background-position: 50% 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
+    .card {
         position: relative;
+        margin-bottom:rem-calc(26px);
 
-        &:hover,
-        &:focus {
-            .info-text {
+        &:before {
+            content: "\e907";
+            font-family: "icomoon";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            font-size: 50px;
+            color: $white;
+            background: rgba($black, .5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity $animation-speed ease-in-out;
+            pointer-events: none;
+        }
+
+        &:hover {
+            &:before {
                 opacity: 1;
             }
 
-            .overlay {
-                opacity: $overlay-opacity;
+            .holder {
+
+                &:before,
+                &:after {
+                    width: calc(100% - 40px);
+                    height: calc(100% - 40px);
+                }
+
+
+                &:before {
+                    border-top-color: $secondary-color;
+                    border-right-color: $secondary-color;
+                    transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
+                }
+
+                &:after {
+                    border-bottom-color: $secondary-color;
+                    border-left-color: $secondary-color;
+                    transition: border-color 0s ease-out 0.5s, width 0.25s ease-out 0.5s, height 0.25s ease-out 0.75s;
+                }
             }
         }
-    }
-
-    .info-text {
-        position: relative;
-        z-index: 1;
-        padding: 10%;
-        opacity: 0;
-        transition: opacity $animation-speed ease-in-out;
-    }
-
-    .icon,
-    [class^="fa"] {
-        font-size: 60px;
-        display: inline-block;
-        vertical-align: top;
-        margin-bottom: 32px;
-
-        @include breakpoint(medium) {
-            font-size: 74px;
-
-        }
-    }
-
-    .overlay {
-        opacity: 0;
-        transition: opacity $animation-speed ease-in-out;
-    }
-}
-
-.icons-section {
-    .grid-icons {
-        display: grid;
-        grid-template-columns: 60px 1fr;
-        grid-gap: 10px;
-        margin-bottom: 20px;
-
-        @include breakpoint(medium) {
-            margin-bottom: 54px;
-        }
-    }
-
-    .icon,
-    [class^="fa"] {
-        display: inline-block;
-        vertical-align: top;
-        color: $primary-color;
-        font-size: 45px;
 
     }
-
-    p {
-        margin: 0;
-    }
-}
-
-.advantages-section {
-    text-align: center;
-
-    h3 {
-        margin-bottom: rem-calc(15);
-
-    }
-
-    .box {
-        background-size: cover;
-        background-position: 50% 50%;
-        position: relative;
-        color: $white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 30px 20px;
-
-        @include breakpoint(large) {
-            min-height: 420px;
-        }
-
-    }
-
-
-    .info-text {
-        position: relative;
-        z-index: 1;
-        max-width: 390px;
-        width: 100%;
-
-    }
-
-
-    .more {
-        text-transform: uppercase;
-        display: inline-block;
-        vertical-align: top;
-        text-decoration: underline;
-        color: inherit;
-
-        &:hover {
-            text-decoration: none;
-        }
-    }
-}
-
-.video-wrap {
-    position: relative;
-    margin-bottom: 20px;
-
-    @include breakpoint(medium) {
-        margin: 0;
-    }
-
-
-    .play {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 65px;
-        color: $white;
-
-        &:hover {
-            color: $primary-color;
-        }
-    }
-}
-
-.banner-carousel  {
-    position: relative;
-    color: $white;
-    font-size: 25px;
-
-    .center-holder {
-        background-size: cover;
-        padding: 40px 0;
-
-        @include breakpoint(medium) {
-            min-height: 300px;
-        }
-
-        @include breakpoint(large) {
-            font-size: 35px;
-            min-height: 500px;
-        }
-    }
-
-    .grid-container {
-        position: relative;
-        z-index: 1;
-    }
-
-    .orbit-previous,
-    .orbit-next {
-        color: rgba($white, .5);
-
-        @include breakpoint(medium) {
-            font-size: 35px;
-        }
-
-        @include breakpoint(large) {
-            font-size: 69px;
-        }
-    }
-
-    h1 {
-        margin: 0;
-    }
-
-    p {
-        margin-bottom: $custom-margin;
-    }
-
-}
-
-.banner{
-    position: relative;
-    color: $white;
-    font-size: 25px;
-    background-size: cover;
-    padding: 40px 0;
-
-    @include breakpoint(medium) {
-        min-height: 300px;
-    }
-
-    @include breakpoint(large) {
-        font-size: 35px;
-        min-height: 500px;
-    }
-
-    .grid-container {
-        position: relative;
-        z-index: 1;
-    }
-
-    h1 {
-        margin: 0;
-    }
-
-    p {
-        margin-bottom: $custom-margin;
-    }
-
-}
-
-
-.subscribe-banner-form {
-    max-width: 646px;
-    margin: 0 auto;
 
     .holder {
 
-        @include breakpoint(medium) {
-            grid-template-columns: 1fr max-content;
-            grid-gap: $custom-margin;
-            display: grid;
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            width: calc(100% - 40px);
+            height: calc(100% - 40px);
+            border: 1px solid transparent;
+            width: 0;
+            height: 0;
+            // z-index: -1;
         }
+
+        &:before {
+            top: 20px;
+            left: 20px;
+        }
+
+        &:after {
+            bottom: 20px;
+            right: 20px;
+
+        }
+
+
     }
 
-    input {
-        @include breakpoint(medium) {
-            margin-bottom: 0;
-        }
+    img{
+        display:inline-block;
+        vertical-align:top;
     }
+
+}
+
+body{
+    // filter: invert(1) hue-rotate(210deg);
 }

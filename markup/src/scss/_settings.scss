@@ -84,8 +84,8 @@ $body-background: $white;
 $body-font-color: $black;
 $body-font-family:'Montserrat', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
-$global-margin: 1rem;
-$global-padding: 1rem;
+$global-margin: 2rem; 
+$global-padding: 2rem;
 $global-position: 1rem;
 $global-weight-normal: normal;
 $global-weight-bold: bold;
@@ -279,7 +279,7 @@ $breadcrumbs-item-separator-color: $medium-gray;
 // ----------
 
 $button-font-family: inherit;
-$button-padding: 0.85em 1em;
+$button-padding: 0.65em 1.2em;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
 $button-background: $primary-color;
@@ -291,7 +291,7 @@ $button-hollow-border-width: 1px;
 $button-sizes: (
   tiny: 0.6rem,
   small: 0.75rem,
-  default: 0.9rem,
+  default: rem-calc(16px),
   large: 1.25rem,
 );
 $button-palette: $foundation-palette;
