@@ -188,3 +188,14 @@ figure {
         }
     }
 }
+
+.button.more{
+    background: none;
+    color: $secondary-color;
+    border-left: 5px solid $secondary-color;
+    text-transform: none;
+    border-radius:0;
+    padding-top: 0.375em;
+    padding-bottom: 0.375em;
+    font-weight: 400;
+}
