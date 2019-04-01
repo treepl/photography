@@ -1,0 +1,22 @@
+.process-block{
+    margin: 0 0 15px;
+    .title{
+        display: block;
+        font-weight: normal;
+        margin-bottom: 3px;
+    }
+
+    .process-line{
+        background: $medium-gray;
+        height: 11px;
+        position: relative;
+    }
+ 
+    .process{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        background: $primary-color;
+    }
+}

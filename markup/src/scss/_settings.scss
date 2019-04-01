@@ -65,7 +65,7 @@
 // 1. Global
 // ---------
 
-$global-font-size:  rem-calc(15);
+$global-font-size:  rem-calc(15); 
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
@@ -884,7 +884,7 @@ $header-background: $white;
 
 $background-blocks:$light-gray;
 
-$section-indent: 50px;
+$section-indent: 70px;
 $icons-font: "Font Awesome 5 Free", "Font Awesome 5 Regular", "Font Awesome 5 Solid", "Font Awesome\ 5 Brands", 'Font Awesome 5 Pro' ;
 
 $overlay-color: $primary-color;
@@ -893,8 +893,8 @@ $animation-speed: 0.3s ;
 
 $custom-margin: $global-margin * 1.875;
 
-$footer-bg: $dark-gray;
-// $footer-color: $concrete;
+$footer-bg: $primary-color;
+$footer-color: #c9c9c9;
 
 // $bottom-footer-bg:$concrete;
 $bottom-footer-color:$dark-gray;

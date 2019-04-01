@@ -10,26 +10,15 @@
 }
 
 
-.section-h {
-    padding: $home-section-indent / 2 0;
 
-    @include breakpoint(medium) {
-        padding: $home-section-indent 0;
-    }
-
-    p {
-        margin-bottom: 1.4em;
-    }
-}
-
-.section-heading{
+.section-heading {
     text-align: center;
     margin-bottom: rem-calc(40px);
 }
 
 .section,
 .content {
-    padding: $section-indent / 2 0;
+    padding: $section-indent / 2 0; 
 
     @include breakpoint(medium) {
         padding: $section-indent 0;
@@ -46,7 +35,7 @@
     background: $background-blocks;
 }
 
-.masonry{
+.masonry {
     align-items: flex-start;
 }
 
@@ -62,13 +51,13 @@
 
 figure {
     position: relative;
-    display:inline-block;
-    vertical-align:top;
+    display: inline-block;
+    vertical-align: top;
     padding: rem-calc($figure-paddings-small 0 0 $figure-paddings-small);
     margin-bottom: rem-calc(30px);
 
     @include breakpoint(large) {
-    padding: rem-calc($figure-paddings 0 0 $figure-paddings);
+        padding: rem-calc($figure-paddings 0 0 $figure-paddings);
     }
 
     &:before {
@@ -87,24 +76,43 @@ figure {
     }
 }
 
-// .social-networks {
-//     @extend %listreset;
-//     font-size: 0;
-//     line-height: 0;
+.social-networks {
+    @extend %listreset;
+    font-size: 0;
+    line-height: 0;
+    margin: 0 -7px;
 
-//     li {
-//         display: inline-block;
-//         vertical-align: top;
-//         font-size: 23px;
-//         line-height: 1;
-//         margin: 0 8px 10px 9px;
-//     }
+    li {
+        display: inline-block;
+        vertical-align: top;
+        font-size: 26px;
+        line-height: 1;
+        padding: 0 7px 10px;
+    }
 
-//     i {
-//         display: inline-block;
-//         vertical-align: top;
-//     }
-// }
+    i {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    a {
+        &:hover {
+            color: $secondary-color;
+        }
+    }
+}
+
+.text-holder {
+    padding: 26px 0 30px;
+
+    .autor {
+        display: inline-block;
+        vertical-align: top;
+        color: $secondary-color;
+        margin-bottom: 23px;
+    }
+}
+
 
 // .map-holder {
 //     position: relative;
@@ -189,12 +197,12 @@ figure {
     }
 }
 
-.button.more{
+.button.more {
     background: none;
     color: $secondary-color;
     border-left: 5px solid $secondary-color;
     text-transform: none;
-    border-radius:0;
+    border-radius: 0;
     padding-top: 0.375em;
     padding-bottom: 0.375em;
     font-weight: 400;

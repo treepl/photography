@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+@@include('layout/head.html')
+
+<body>
+    <div id="wrapper">
+        @@include('layout/header.html')
+        <main role="main" id="main">
+            <div class="content">
+                <div class="grid-container">
+                    <nav>
+                        <ul class="portfolio-nav portfolioFilterBTNHolder">
+                            <li data-filter="*" class="active"><a href="#">all</a></li>
+                            <li data-filter=".marketing"><a href="#">marketing</a></li>
+                            <li data-filter=".design"><a href="#">design</a></li>
+                            <li data-filter=".development"><a href="#">Development</a></li>
+                            <li data-filter=".app"><a href="#">app</a></li>
+                        </ul>
+                    </nav>
+                    <div class="grid-x grid-padding-x small-up-2 medium-up-3 portfolioFilterGridHolder">
+                        <div class="cell">
+                            <div class="card">
+                                <a class="holder" href="images/portfolio/portfolio-img-01-full.jpg" data-fancybox="images">
+                                    <img src="images/portfolio/portfolio-img-01.jpg">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class="card">
+                                <a class="holder" href="images/portfolio/portfolio-img-02-full.jpg" data-fancybox="images">
+                                    <img src="images/portfolio/portfolio-img-02.jpg">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class="card">
+                                <a class="holder" href="images/portfolio/portfolio-img-03-full.jpg" data-fancybox="images">
+                                    <img src="images/portfolio/portfolio-img-03.jpg">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class="card">
+                                <a class="holder" href="images/portfolio/portfolio-img-04-full.jpg" data-fancybox="images">
+                                    <img src="images/portfolio/portfolio-img-04.jpg">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class="card">
+                                <a class="holder" href="images/portfolio/portfolio-img-05-full.jpg" data-fancybox="images">
+                                    <img src="images/portfolio/portfolio-img-05.jpg">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+        @@include('layout/footer.html')
+    </div>
+</body>
+
+</html>

@@ -84,17 +84,17 @@ $global-flexbox: true;
 @import 'layout/navigation';
 @import 'layout/common';
 // @import 'layout/sidebar';
-@import 'layout/footer';
+@import 'layout/footer';  
 
  
 
 
 @import 'pages/home';  
-// @import 'pages/blogs'; 
+@import 'pages/about'; 
 
 // @import 'pages/modules/galleries'; 
 // @import 'pages/modules/team'; 
-// @import 'pages/modules/portfolio';
+@import 'pages/modules/portfolio'; 
 
 
 

@@ -1,4 +1,5 @@
 [id="footer"] {
+    padding: 28px 0;
     background: $footer-bg;
     color: $footer-color;
 
@@ -10,125 +11,72 @@
         }
     }
 
-    .text {
-        font-size: rem-calc(14);
-    }
-
     h3 {
         text-transform: uppercase;
-        margin-bottom: 17px;
+        margin-bottom: 9px;
     }
 
     a {
         color: inherit;
 
         &:hover {
-            color: $primary-color;
+            color: $secondary-color;
         }
     }
 
-    footer {
-        background: $bottom-footer-bg;
-        color: $bottom-footer-color;
+    p {
+        margin-bottom: 1.2em;
     }
 
-}
-
-.aside{
-    padding-top:  $section-indent;
-    padding-bottom: 31px;
-}
-
-.add-nav {
-    ul {
-        @extend %listreset;
+    input[type="text"],
+    input[type="email"],
+    label {
+        font-size: inherit;
+        color: inherit;
+        margin-bottom: 11px;
     }
 
-    li{
-        margin-bottom: 7px;
+    .button,
+    .button:hover{
+        color: $white;
     }
 }
 
-.service-info {
+
+
+
+.contact-list {
     @extend %listreset;
-    
+    margin-bottom: 8px;
 
-    dt {
+    li {
         position: relative;
-        padding: 0 10px 0 0;
-        float: left;
-        clear: left;
-        font-weight: 400;
-    }
-
-    dd {
-        overflow: hidden;
-        margin: 0 0 10px;
-        word-wrap: break-word;
-
-        @include breakpoint(medium) {
-            margin-bottom: 24px;
-        }
+        padding: 0 0 6px 38px;
     }
 
     .icon {
-        display:inline-block;
-        vertical-align:middle;
-        font-size: 18px;
-    }
-
-    address {
-        font-style: normal;
+        position: absolute;
+        top: 3px;
+        left: 0;
+        font-size: 17px;
     }
 }
 
-.newsletter-form {
+.instagram-widget {
+    @extend %listreset;
+    font-size: 0;
+    line-height: 0;
+    margin: 0 -5px;
+    padding: 5px 0; 
 
-    input[type="text"],
-    input[type="email"] {
-        background: #6c6b6b;
-        color: $white;
-        margin-bottom: 20px;
+    li {
+        display: inline-block;
+        vertical-align: top;
+        padding: 0 5px 10px;
     }
 
-    .button {
-        width: 100%;
-    }
-
-}
-
-
-.footer-hold {
-    display: flex;
-    flex-wrap: wrap;
-    padding-top: 25px;
-    padding-bottom: 25px;
-
-    @include breakpoint(medium) {
-        justify-content: space-between;
-
-    }
-
-
-
-    .social-networks {
-        order: -1;
-        width: 100%;
-
-        @include breakpoint(medium) {
-            order: 1;
-            width: auto;
-            margin-left: 10px;
-            margin-right: -10px;  
-        }
-
-        a {
-            color: $primary-color;
-        }
-    }
-
-
-    p {
-        margin: 0;
+    img {
+        display: inline-block;
+        vertical-align: top;
     }
 }

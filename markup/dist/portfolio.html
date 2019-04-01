@@ -182,34 +182,53 @@
         <main role="main" id="main">
             <div class="content">
                 <div class="grid-container">
-                    <h2>Contact Form</h2>
-                    <div class="grid-x grid-margin-x small-up-1 medium-up-2 ">
+                    <nav>
+                        <ul class="portfolio-nav portfolioFilterBTNHolder">
+                            <li data-filter="*" class="active"><a href="#">all</a></li>
+                            <li data-filter=".marketing"><a href="#">marketing</a></li>
+                            <li data-filter=".design"><a href="#">design</a></li>
+                            <li data-filter=".development"><a href="#">Development</a></li>
+                            <li data-filter=".app"><a href="#">app</a></li>
+                        </ul>
+                    </nav>
+                    <div class="grid-x grid-padding-x small-up-2 medium-up-3 portfolioFilterGridHolder">
                         <div class="cell">
-                            <form action="/forms/cases.ashx?form=contact_form" method="post" enctype="multipart/form-data" class="contact-form" name="contactForm">
-                                <input type="email" id="Email" name="Email" placeholder="Email" required>
-                                <input type="text" id="FirstName" name="FirstName" placeholder="Name">
-                                <input type="text" id="Subject" name="Subject" placeholder="Subject">
-                                <textarea id="Message" name="Message" placeholder="Message"></textarea>
-                                <div class="captcha-holder">
-                                    <div class="g-recaptcha" data-sitekey="6Lf2cGcUAAAAABbL4aDrclASNZx9S3uaI9EvpvlI"></div>
-                                </div>
-                                <input type="submit" class="button secondary" value="Send Message">
-                            </form> 
+                            <div class="card">
+                                <a class="holder" href="images/portfolio/portfolio-img-01-full.jpg" data-fancybox="images">
+                                    <img src="images/portfolio/portfolio-img-01.jpg">
+                                </a>
+                            </div>
                         </div>
                         <div class="cell">
-                            <div class="map-container">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12138.561381251964!2d-74.29161145468409!3d40.48322101971799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3cbc6ae62646d%3A0xecef687e26b22fcf!2z0K7QsyDQkNC80LHQvtC5LCDQndGM0Y4t0JTQttC10YDRgdC4LCDQodCo0JA!5e0!3m2!1sru!2sua!4v1490875592110" width="559" height="417" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            <div class="card">
+                                <a class="holder" href="images/portfolio/portfolio-img-02-full.jpg" data-fancybox="images">
+                                    <img src="images/portfolio/portfolio-img-02.jpg">
+                                </a>
                             </div>
-                            <dl class="service-info contact">
-                                <dt><i class="icon icon-pin"></i>Address:</dt>
-                                <dd><address> 1234 Street Name, City</address></dd>
-                                <dt><i class="icon icon-phone"></i>Phone:</dt>
-                                <dd><a href="tel:{{siteSettings.Phone}}">(123) 456-789</a> </dd>
-                                <dt> <i class="icon icon-mail"></i>Email: </dt>
-                                <dd><a href="lwenetemplate@gmail.com">lwenetemplate@gmail.com</a></dd>
-                            </dl>
+                        </div>
+                        <div class="cell">
+                            <div class="card">
+                                <a class="holder" href="images/portfolio/portfolio-img-03-full.jpg" data-fancybox="images">
+                                    <img src="images/portfolio/portfolio-img-03.jpg">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class="card">
+                                <a class="holder" href="images/portfolio/portfolio-img-04-full.jpg" data-fancybox="images">
+                                    <img src="images/portfolio/portfolio-img-04.jpg">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class="card">
+                                <a class="holder" href="images/portfolio/portfolio-img-05-full.jpg" data-fancybox="images">
+                                    <img src="images/portfolio/portfolio-img-05.jpg">
+                                </a>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </main>

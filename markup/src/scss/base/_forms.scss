@@ -128,34 +128,25 @@ fieldset {
     }
 }
 
-.login-form {
-    margin-bottom: $custom-margin;
+.newsletter-form{
+    .input-row{
+        display: flex; 
+        @include breakpoint(medium) {
+            display: block;
+        }
 
-    .checkbox-list {
-        margin-bottom: 10px;
-    }
-
-    .button-bar {
-        display: flex;
-        align-items: center;
-
-        .button {
-            margin: 0 20px 0 0;
+        @include breakpoint(large) {
+            display: flex;
         }
     }
 
-    .captcha-holder {
-        margin-bottom: 20px;
+    input[type="text"],
+    input[type="email"]{
+        margin-right: 10px;
+        background: none;
     }
-
-    .lost-pass {
-        display: inline-block;
-        vertical-align: middle;
-    }
-}
-
-.account-form {
-    .captcha-holder {
-        margin-bottom: 20px;
+ 
+    .btn{
+        flex-shrink: 0;
     }
 }
