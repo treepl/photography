@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+@@include('layout/head.html')
+
+<body>
+    <div id="wrapper">
+        @@include('layout/header.html')
+        <main role="main" id="main">
+            <div class="content">
+                <div class="grid-container">
+                    <div class="grid-x  grid-margin-x">
+                        <div class="cell small-12 medium-8">
+                            <h1 class="h3 section-heading">Blog</h1>
+                            <div class="blog-list">
+                                <div class="grid-x grid-margin-x  small-up-1 medium-up-2 ">
+                                    <div class="cell">
+                                        <div class="card">
+                                            <div class="img-block">
+                                                <img src="images/blog/blog-01.jpg">
+                                            </div>
+                                            <div class="card-section">
+                                                <ul class="category-list">
+                                                    <li>Tutorials</li>
+                                                    <li><time class="date" datetime="2019-02-04">January 29, 2019</time></li>
+                                                </ul>
+                                                <h2 class="h5 title">How to shoot portrait photography?</h2>
+                                                <p>Vivamus lobortis luctus odio ut lacinia. In placerat egestas pulvinar. Duis a dui blandit mauris vestibulum aliquet ac in felis. </p>
+                                                <a class="button more" href="#">Read more...</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cell">
+                                        <div class="card">
+                                            <div class="img-block">
+                                                <img src="images/blog/blog-02.jpg">
+                                            </div>
+                                            <div class="card-section">
+                                                <ul class="category-list">
+                                                    <li>Creative projects</li>
+                                                    <li><time class="date" datetime="2019-02-04">January 29, 2019</time></li>
+                                                </ul>
+                                                <h2 class="h5 title">How to shoot portrait photography?</h2>
+                                                <p>Duis malesuada, massa congue semper mollis, ligula orci sagittis sapien, et luctus purus purus ac lectus. Curabitur vel quam massa. </p>
+                                                <a class="button more" href="#">Read more...</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cell">
+                                        <div class="card">
+                                            <div class="img-block">
+                                                <img src="images/blog/blog-03.jpg">
+                                            </div>
+                                            <div class="card-section">
+                                                <ul class="category-list">
+                                                    <li>Tutorials</li>
+                                                    <li><time class="date" datetime="2019-02-04">January 29, 2019</time></li>
+                                                </ul>
+                                                <h2 class="h5 title">How to make an object shoot?</h2>
+                                                <p>Ut malesuada elementum vestibulum. Suspendisse placerat, nunc sit amet vestibulum elementum, dui urna interdum orci.</p>
+                                                <a class="button more" href="#">Read more...</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cell">
+                                        <div class="card">
+                                            <div class="img-block">
+                                                <img src="images/blog/blog-04.jpg">
+                                            </div>
+                                            <div class="card-section">
+                                                <ul class="category-list">
+                                                    <li>Photography</li>
+                                                    <li><time class="date" datetime="2019-02-04">November 29, 2018</time></li>
+                                                </ul>
+                                                <h2 class="h5 title">Landscape shoot</h2>
+                                                <p>Ut malesuada elementum vestibulum. Suspendisse placerat, nunc sit amet vestibulum elementum, dui urna interdum orci.</p>
+                                                <a class="button more" href="#">Read more...</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pagination">
+                                <ul>
+                                        <li class="prev"><a href="?&amp;page=1&amp;prop_ModuleId=1534">Prev</a></li>
+                                    <li class="active current"><a href="?page=1&amp;prop_ModuleId=1534">1</a></li>
+                                    <li class=""><a href="?page=2&amp;prop_ModuleId=1534">2</a></li>
+                                    <li class="next"><a href="?page=2&amp;prop_ModuleId=1534">Next</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <aside class="cell small-12 medium-4" id="sidebar">
+                                @@include('contentholders/blog/blogs-sidebar.html') 
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </main>
+        @@include('layout/footer.html')
+    </div>
+</body>
+
+</html>

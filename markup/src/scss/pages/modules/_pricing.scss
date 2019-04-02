@@ -1,0 +1,46 @@
+.pricing-list{
+    margin-bottom: 22px;
+    .cell{
+        display: flex;
+        flex-direction: column;
+    }
+}
+.pricing-table {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+    padding: 45px 20px 25px;
+    margin-bottom: $global-margin;
+    flex-grow: 1;
+
+    @include breakpoint(medium) {
+        padding: 30px 15px 20px;
+    }
+
+
+    .price {
+        text-align: center;
+        color: $secondary-color;
+        font-size: 30px;
+        display: block;
+        margin-bottom: 26px;
+
+        sup,
+        sub {
+            font-size: 0.5em;
+        }
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    .custom-list {
+        li {
+            padding-left: 20px;
+            padding-bottom: 20px;
+
+            &:before {
+                left: 0;
+            }
+        }
+    }
+}

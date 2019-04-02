@@ -83,7 +83,7 @@ $global-flexbox: true;
 @import 'layout/header'; 
 @import 'layout/navigation';
 @import 'layout/common';
-// @import 'layout/sidebar';
+@import 'layout/sidebar';
 @import 'layout/footer';  
 
  
@@ -91,10 +91,12 @@ $global-flexbox: true;
 
 @import 'pages/home';  
 @import 'pages/about'; 
+@import 'pages/blog'; 
 
 // @import 'pages/modules/galleries'; 
 // @import 'pages/modules/team'; 
 @import 'pages/modules/portfolio'; 
+@import 'pages/modules/pricing'; 
 
 
 

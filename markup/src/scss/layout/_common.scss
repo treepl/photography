@@ -12,7 +12,6 @@
 
 
 .section-heading {
-    text-align: center;
     margin-bottom: rem-calc(40px);
 }
 
@@ -25,11 +24,6 @@
     }
 }
 
-.content {
-    img {
-        margin-bottom: rem-calc(24px);
-    }
-}
 
 .bg-block {
     background: $background-blocks;
@@ -154,7 +148,6 @@ figure {
 
 
 .pagination {
-    text-align: center;
 
     .active a,
     .active a:hover {

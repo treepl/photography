@@ -74,12 +74,13 @@
 
 .img-section {
 
-    .masonry{
-        padding-bottom:22px;
+    .masonry {
+        padding-bottom: 22px;
     }
+
     .card {
         position: relative;
-        margin-bottom:rem-calc(26px);
+        margin-bottom: rem-calc(26px);
 
         &:before {
             content: "\e907";
@@ -141,7 +142,6 @@
             border: 1px solid transparent;
             width: 0;
             height: 0;
-            // z-index: -1;
         }
 
         &:before {
@@ -158,38 +158,40 @@
 
     }
 
-    img{
-        display:inline-block;
-        vertical-align:top;
+    img {
+        display: inline-block;
+        vertical-align: top;
+        margin: 0;
     }
 
 }
- 
-.ordinal-blocks{
+
+.ordinal-blocks {
     counter-reset: ordered-counter;
 
-    .cell{
+    .cell {
         counter-increment: ordered-counter;
     }
-    .card{
-        border: none ;
+
+    .card {
+        border: none;
     }
 
-    .img-block{
+    .img-block {
         text-align: center;
         margin-bottom: 20px;
     }
-    
-    .title{
+
+    .title {
         position: relative;
         padding: 11px 20px;
         border-left: 4px solid $secondary-color;
         z-index: 1;
         margin: 0;
-        
 
-        &:after{
-            content: counter(ordered-counter, decimal-leading-zero) ;
+
+        &:after {
+            content: counter(ordered-counter, decimal-leading-zero);
             position: absolute;
             top: -6px;
             left: 23px;
@@ -201,20 +203,18 @@
         }
     }
 
-    .card-section{
+    .card-section {
         padding: 14px 27px;
     }
 }
 
-.text-carousel{
-    
-    .orbit{
-        
-    }
-    
-    .orbit-slide{
+.text-carousel {
+
+    .orbit {}
+
+    .orbit-slide {
         overflow: hidden;
-        padding: 0 20px; 
+        padding: 0 20px;
 
         @include breakpoint(medium) {
             padding: 0 60px;
@@ -222,20 +222,20 @@
     }
 
     .orbit-previous,
-    .orbit-next{
+    .orbit-next {
         padding: 0;
         line-height: 1;
         color: $secondary-color;
-        transform: translateY( calc(-50% - 30px));
+        transform: translateY(calc(-50% - 30px));
 
         @include breakpoint(medium) {
             font-size: 30px;
         }
-    
+
         &:hover,
-        &:focus{
-               color: $orbit-control-background-hover;
-               background: none;
+        &:focus {
+            color: $orbit-control-background-hover;
+            background: none;
         }
     }
 
@@ -244,12 +244,12 @@
         border: 1px solid $secondary-color;
         margin-bottom: 70px;
         position: relative;
-        
+
         @include breakpoint(medium) {
             padding: 43px 21px 81px;
         }
 
-        .photo{
+        .photo {
             @include size(120px);
             border-radius: 50%;
             overflow: hidden;
@@ -258,66 +258,21 @@
             left: 50%;
             transform: translate(-50%, 50%);
 
-            img{
-                display:inline-block;
-                vertical-align:top;
+            img {
+                display: inline-block;
+                vertical-align: top;
             }
         }
 
-        q{
+        q {
             display: block;
             margin-bottom: 21px;
         }
 
-        cite{
+        cite {
             padding-left: 5px;
         }
     }
 }
 
 
-.blog-list{
-    
-    .card{
-        background: none;
-        border: none;
-    }
-
-    .card-section{
-        padding: 24px 0;
-    }
-
-    .category-list{
-        @extend %listreset;
-        font-size: 0; 
-        color: $dark-gray;
-        margin: 0 0 20px;
-
-        li{
-            display:inline-block;
-            vertical-align:top;
-            font-size: $global-font-size;
-            position: relative;
-            padding-right: 32px;
-
-            &:not(:last-child):before{
-                content:"/";
-                position: absolute;
-                top: 0;
-                right: 12px;
-            }
-        }
-
-        a{
-            color: inherit;
-        }
-    }
-
-    h2{
-        text-transform: none;
-    }
-
-    p{
-        margin-bottom: 1em;
-    }
-}

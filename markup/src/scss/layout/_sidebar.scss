@@ -12,8 +12,10 @@
         margin-bottom: 50px;
     }
 
-    h3 {
-        font-weight: 500;
+   
+    h3{
+        color: $secondary-color;
+        margin-bottom: rem-calc(12px);
     }
 
     img {
@@ -26,181 +28,31 @@
 
 .side-nav {
     @extend %listreset;
-    color: $white;
     margin-bottom: 30px;
 
     li {
-        margin-bottom: 1px;
+        border: solid $medium-gray;
+        border-width: 0 0 1px;
+
+        &:first-child {
+            border-top-width: 1px;
+        }
 
     }
 
     .active a {
-        background: $primary-color;
+        color: $secondary-color;
     }
 
     a {
         display: block;
-        padding: rem-calc(14px 28px);
-        background: $medium-gray;
+        padding: rem-calc(15px 0);
         color: inherit;
 
         &:hover {
-            background: lighten($medium-gray, 5%)
+            color: $secondary-color;
         }
     }
+
 }
 
-.side-form {
-    font-size: 16px;
-    padding: rem-calc(15px);
-
-    @include breakpoint(large) {
-        padding: rem-calc(26px 31px);
-
-    }
-
-    h2 {
-        margin-bottom: rem-calc(7px);
-    }
-
-    [type='text'],
-    [type='password'],
-    [type='date'],
-    [type='datetime'],
-    [type='datetime-local'],
-    [type='month'],
-    [type='week'],
-    [type='email'],
-    [type='number'],
-    [type='search'],
-    [type='tel'],
-    [type='time'],
-    [type='url'],
-    [type='color'],
-    textarea {
-        margin-bottom: 10px;
-    }
-
-    textarea {
-        height: 120px;
-    }
-
-    p {
-        margin-bottom: rem-calc(19);
-    }
-
-
-    .button {
-        width: 100%;
-        margin-top: 10px;
-    }
-}
-
-.subscribe-newsletter-form {
-    h3 {
-        margin-bottom: rem-calc(23);
-    }
-
-    [type='text'],
-    [type='email'] {
-        margin-bottom: rem-calc(20);
-    }
-
-
-    .button {
-        width: 100%;
-    }
-}
-
-.archives {
-    @extend %listreset;
-
-    li {
-        position: relative;
-        // padding: 3px 0;
-        margin-bottom: 13px;
-
-        ul {
-            @extend %listreset;
-            padding: 16px 0 0 20px;
-
-        }
-
-        li {
-            margin-bottom: 4px;
-
-            &:last-child {
-                padding-bottom: 0;
-            }
-        }
-
-        &:before {
-            content: "";
-            display: none !important;
-        }
-
-        &.active {
-            .opener:after {
-                content: "\e915";
-            }
-        }
-    }
-
-
-
-    .opener {
-        position: relative;
-        display: inline-block;
-        vertical-align: top;
-        padding-right: 15px;
-        font-weight: 600;
-
-        &:after {
-            content: "\e914";
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            font-family: "icomoon";
-            font-size: 10px;
-        }
-    }
-
-
-
-    a {
-        color: inherit;
-
-        &:hover {
-            color: $primary-color;
-        }
-
-        span {
-            // color:$primary-color ;
-        }
-    }
-
-    .selected {
-        color: $primary-color;
-    }
-}
-
-.categories-list {
-    @extend %listreset;
-
-    li {
-        margin: 0 0 15px;
-    }
-
-    a {
-        color: inherit;
-
-        &:hover {
-            color: $primary-color;
-        }
-    }
-
-    .selected {
-        color: $primary-color;
-    }
-}

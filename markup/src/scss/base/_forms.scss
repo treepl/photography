@@ -128,9 +128,10 @@ fieldset {
     }
 }
 
-.newsletter-form{
-    .input-row{
-        display: flex; 
+.newsletter-form {
+    .input-row {
+        display: flex;
+
         @include breakpoint(medium) {
             display: block;
         }
@@ -141,12 +142,33 @@ fieldset {
     }
 
     input[type="text"],
-    input[type="email"]{
+    input[type="email"] {
         margin-right: 10px;
         background: none;
     }
- 
-    .btn{
+
+    .btn {
         flex-shrink: 0;
+    }
+}
+
+.search-form {
+    padding-bottom: 15px;
+    .input-row{
+        display: flex;
+
+        @include breakpoint(medium) {
+            display: block;
+        }
+
+        @include breakpoint(large) {
+            display: flex;
+        }
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="search"] {
+        margin-right: 10px;
     }
 }
