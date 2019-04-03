@@ -1,4 +1,7 @@
 .contact-form {
+    h4{
+        margin-bottom: rem-calc(24px);
+    }
 
     [type='text'],
     [type='password'],
@@ -16,42 +19,14 @@
     [type='color'],
     textarea,
     .captcha-holder{
-        margin-bottom: 15px; 
+        margin-bottom: 20px;  
     }
 
      textarea {
-        height: 120px;
-        min-height: 120px;
+        height: 201px;
+        min-height: 201px;
+        margin-bottom: 50px;
     }
 
 }
 
-.service-info.contact {
-
-    dt {
-        padding-right: 4px;
-    }
-
-    dd {
-        @include breakpoint(medium) {
-            margin-bottom: 19px;
-        }
-    }
-
-    .icon {
-        color: $primary-color;
-        padding-top: 3px;
-        margin-right: 9px;
-        vertical-align: top;
-    }
-
-    a {
-        color: inherit;
-    }
-}
-
-.map-container {
-    max-width: 100%;
-    overflow: hidden;
-    margin-bottom: 21px;
-}

@@ -7,7 +7,7 @@
 @import 'base/mixins';
 @import 'base/helpers';
 $global-flexbox: true;
-// $button-responsive-expanded: true;
+// $button-responsive-expanded: true; 
 
 @include foundation-global-styles;
 @include foundation-xy-grid-classes; 
@@ -92,15 +92,9 @@ $global-flexbox: true;
 @import 'pages/home';  
 @import 'pages/about'; 
 @import 'pages/blog'; 
-
-// @import 'pages/modules/galleries'; 
-// @import 'pages/modules/team'; 
 @import 'pages/modules/portfolio'; 
 @import 'pages/modules/pricing'; 
+@import 'pages/contact';  
+@import 'pages/search-results';  
+@import 'pages/system-pages';  
 
-
-
-
-// @import 'pages/contact'; 
-// @import 'pages/coming-soon'; 
-// @import 'pages/thank-you'; 

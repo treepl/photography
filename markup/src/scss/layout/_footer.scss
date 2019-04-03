@@ -45,22 +45,7 @@
 
 
 
-.contact-list {
-    @extend %listreset;
-    margin-bottom: 8px;
 
-    li {
-        position: relative;
-        padding: 0 0 6px 38px;
-    }
-
-    .icon {
-        position: absolute;
-        top: 3px;
-        left: 0;
-        font-size: 17px;
-    }
-}
 
 .instagram-widget {
     @extend %listreset;

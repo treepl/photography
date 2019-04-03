@@ -8,9 +8,7 @@
         <main role="main" id="main">
             <div class="content">
                 <div class="grid-container">
-                    <div class="section-heading">
-                        <h1 class="h3">Contacts</h1>
-                    </div>
+                    <h1 class="h3 section-heading text-center">Contacts</h1>
                     <div class="grid-x grid-margin-x small-up-1 medium-up-2 ">
                         <div class="cell">
                             <figure>
@@ -19,15 +17,16 @@
                         </div>
                         <div class="cell">
                             <p>My name is Jane Doe, and I’m a professional photographer. Hope you will like my pics and you will decide to work with me.</p>
-                            <h3>SEND me A MESSAGE</h3>
+                            <ul class="contact-list ">
+                                <li><i class="icon icon-telephone-handle-silhouette"></i> <a href="tel:99999">+1 302-555-2525</a> </li>
+                                <li><i class="icon icon-envelope"></i> <a href="mailto:info@photography.com">info@photography.com</a> </li>
+                            </ul>
                             <form action="/forms/cases.ashx?form=contact_form" method="post" enctype="multipart/form-data" class="contact-form" name="contactForm">
-                                <input type="email" id="Email" name="Email" placeholder="Email" required>
-                                <input type="text" id="FirstName" name="FirstName" placeholder="Name">
-                                <input type="text" id="Subject" name="Subject" placeholder="Subject">
-                                <textarea id="Message" name="Message" placeholder="Message"></textarea>
-                                <div class="captcha-holder">
-                                    <div class="g-recaptcha" data-sitekey="6Lf2cGcUAAAAABbL4aDrclASNZx9S3uaI9EvpvlI"></div>
-                                </div>
+                                <h4>SEND me A MESSAGE</h4>
+                                <input type="text" id="FirstName" name="FirstName" placeholder="Your Name">
+                                <input type="text" id="Phone" name="Phone" placeholder="Your Name">
+                                <input type="email" id="Email" name="Email" placeholder="Your Email" required>
+                                <textarea id="Message" name="Message" placeholder="Whrite your question here"></textarea>
                                 <input type="submit" class="button " value="Submit">
                             </form>
                         </div>

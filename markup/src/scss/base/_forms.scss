@@ -154,7 +154,8 @@ fieldset {
 
 .search-form {
     padding-bottom: 15px;
-    .input-row{
+
+    .input-row {
         display: flex;
 
         @include breakpoint(medium) {
@@ -172,3 +173,4 @@ fieldset {
         margin-right: 10px;
     }
 }
+

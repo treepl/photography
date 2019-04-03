@@ -1,12 +1,49 @@
 jQuery(function () {
     initPortfolioGallery();
-    initAjaxLoadMoreFunction();
+	initAjaxLoadMoreFunction();
+	initComingSoonCountDown();
+	initFoundation();
 });
 
 $(window).load(function()
 {
     $('.loaded-block').fadeOut();
 });
+
+function initFoundation() {
+	jQuery(document).foundation();
+
+	$(function() {
+		$('.search')
+		  .bind('click', function(event) {
+			$(".search-field").toggleClass("expand-search");
+	  
+			// if the search field is expanded, focus on it
+			if ($(".search-field").hasClass("expand-search")) {
+			  $(".search-field").focus();
+			}
+		  })
+	  });
+}
+
+/*Coming Soon*/
+function initComingSoonCountDown() {
+    var condition = $('.comingSoonTimerHolder').size()
+        // && false
+    ;init(condition);
+
+    function init(condition) {
+        if(condition || condition == null) {
+            $('.comingSoonTimerHolder').countdowntimer({
+                dateAndTime : "2019/06/06 00:00:00",
+                size : "lg",
+                regexpMatchFormat : "([0-9]{1,3}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})",
+                regexpReplaceWith : '<div class="column"> <div class="holder"> <span>$1</span> <p>days</p></div></div><div class="column"> <div class="holder"> <span>$2</span> <p>hours</p></div></div><div class="column"> <div class="holder"> <span>$3</span> <p>minutes</p></div></div><div class="column"> <div class="holder"> <span>$4</span> <p>seconds</p></div></div>'
+            });
+        }
+    }
+}
+/*End Coming Soon*/
 
 function initAjaxLoadMoreFunction()
 {
