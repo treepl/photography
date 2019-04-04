@@ -1,29 +1,38 @@
-.top-bar{
+.top-bar {
 
 
-    &.nav-top{
+    &.nav-top {
         padding: 0;
     }
 }
-.navigation{ 
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    font-weight: 400;
-    padding: 20px 0;
-    font-size: 14px;
+
+
+
+.navigation {
     
+    padding: 20px 0;
     
     @include breakpoint(large) {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        font-weight: 400;
+        font-size: 14px;
         padding: 0;
     }
- 
-    .menu{
+
+    >ul{
+        justify-content: center;
+    }
+
+    .menu {
         flex-grow: 1;
-        @include breakpoint(large){
+
+        @include breakpoint(large) {
             margin-left: -20px;
             margin-right: -20px;
-        } 
+        }
+
         // @include breakpoint(xlarge) {
         //     margin-left: -40px;
         //     margin-right: -40px;
@@ -32,74 +41,121 @@
         @media screen and #{breakpoint(xlarge)} {
             margin-left: -40px;
             margin-right: -40px;
-          }
+        }
 
-        li{
+        li {
             position: relative;
 
-            @include breakpoint(medium){
+            @include breakpoint(medium) {
                 padding-left: 20px;
                 padding-right: 20px;
-            } 
+            }
 
             @media screen and #{breakpoint(xlarge)} {
                 padding-left: 40px;
                 padding-right: 40px;
 
             }
-            
 
-            &:not(:last-child):before{
-                content:"/";
-                position: absolute;
-                top: 50%;
-                transform: translate(50%, -50%);
-                right: 0;
+            @include breakpoint(large) {
+                &:not(:last-child):before {
+                    content: "/";
+                    position: absolute;
+                    top: 50%;
+                    transform: translate(50%, -50%);
+                    right: 0;
+                }
             }
-            
-            
+
+
         }
+
+        a {
+            flex-grow: 1;
+            position: relative;
+        }
+
     }
 
-    .menu .menu{
+
+
+    .menu .menu {
         margin: 0;
-       
+
         @include breakpoint(large) {
             box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
         }
-       
-        li{
-            padding: 0 20px;
 
-            &:before{
-               display: none;
+        li {
+            // padding: 0 20px;
+            padding: 0;
+
+            &:before {
+                display: none;
             }
-            &:not(:last-child){
+
+            &:not(:last-child) {
                 border-bottom: 1px solid $white;
             }
         }
 
-        a{
-            padding-left: 0;
-            padding-right: 0;
+        a {
+
             flex-grow: 1;
-            border-bottom: 1px solid $medium-gray;
+            // border-bottom: 1px solid $medium-gray;
+
+
         }
     }
 
-    
-    >ul>li>a{
+
+    >ul>li>a {
         text-transform: uppercase;
         font-weight: 500;
     }
 
-    ul ul{
+    ul ul {
         @include breakpoint(large) {
             display: none;
-        } 
+        }
+
+        li {
+            a {
+                background: none;
+            }
+        }
+
+        li a {
+            position: relative;
+            background: none;
+
+            &:before {
+                content: "";
+                position: absolute;
+                left: 20px;
+                right: 20px;
+                bottom: 0;
+                height: 1px;
+                background: $medium-gray;
+            }
+
+        }
+
+        li {
+            &:last-child {
+                a:before {
+                    display: none;
+                }
+            }
+        }
+
+        .is-active>a {
+            background: none;
+            color: inherit;
+        }
     }
 
-    .dropdown.menu.large-horizontal > li.is-dropdown-submenu-parent > a::after{
+    .dropdown.menu.large-horizontal>li.is-dropdown-submenu-parent>a::after {
         content: "\e900";
         font-family: "icomoon";
         width: auto;
@@ -108,7 +164,7 @@
         top: 50%;
         transform: translateY(-50%);
     }
- 
+
 
 
 }

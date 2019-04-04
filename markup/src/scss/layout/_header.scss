@@ -6,40 +6,64 @@
 	}
 }
 
-
-
 .header-area {
-	z-index: 3; 
-	 
+	z-index: 3;
+
 	.holder {
-		padding-top: 40px; 
 		box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 		background: $header-background;
+	}
 
-	} 
+	.logo-holder {
+		position: relative;
+		padding:20px 50px 20px 0;
+
+		@include breakpoint(medium) {
+			text-align: center;
+			padding: 20px 50px;
+		}
+
+		@include breakpoint(large) {
+			padding: 40px 0 0;
+		}
+	}
+
+	.nav-opener {
+		background: $primary-color;
+		padding: 10px;
+		font-size: 0;
+		line-height: 0;
+		margin-left: auto;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		right: 0;
+	}
+
 
 	.active:not(.is-submenu-item)>a {
 		@include breakpoint(large) {
 			color: $primary-color;
 		}
-	} 
+	}
 
 	a {
 		color: inherit;
 	}
 }
 
-
-
-.title-bar{
+.title-bar {
 	position: relative;
 }
 
 
 .logo {
-	margin-bottom: 30px;
+	@include breakpoint(large) {
+		margin-bottom: 30px;
+	}
+
 	img {
 		max-height: 50px;
-		
+
 	}
 }
