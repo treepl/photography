@@ -1,0 +1,33 @@
+{% component source: "Site Settings", layout: "List", collectionVariable: "siteSettings", type: "module" %}
+{% assign siteSettings = siteSettings.items[0] -%}
+<footer id="footer">
+    <div class="grid-container aside">
+        <div class="grid-x grid-padding-x small-up-1 medium-up-3">
+            <div class="cell">
+                <h3 class="h4">{{siteSettings.FooterHeading1}}</h3>
+                <p>{{siteSettings.Footertext}}</p>
+                <ul class="contact-list">
+                    <li><i class="icon icon-telephone-handle-silhouette"></i> <a href="tel:{{siteSettings.Phone | remove:  '-' | remove: '+' | remove: ' '}}">{{siteSettings.Phone}}</a> </li>
+                    <li><i class="icon icon-envelope"></i> <a href="mailto:{{siteSettings.Email}}">{{siteSettings.Email}}</a> </li>
+                </ul>
+                <ul class="social-networks">
+                    <li><a href="{{siteSettings.FacebookLink}}"> <i class="icon icon-facebook"></i></a></li>
+                    <li><a href="{{siteSettings.TwitterLink}}"> <i class="icon icon-twitter-logo-button"></i></a></li>
+                    <li><a href="{{siteSettings.YoutubeLink}}"> <i class="icon icon-youtube-logotype"></i></a></li>
+                </ul>
+            </div>
+            <div class="cell">
+                <h3 class="h4">Instagram</h3>
+                <ul class="instagram-widget" id="instafeed" data-user_id="{{siteSettings.InstagramUserId}}" data-access_token="{{siteSettings.InstagramAccessToken}}" data-client_id="{{siteSettings.InstagramClientId}}">
+                </ul>
+            </div>
+            <div class="cell">
+                <h3 class="h4">Subscribe</h3>
+                <p>If you want to see all of my works earlier than everybody - just click the button and follow me.</p>
+                {% component type: "form", alias: "subscribe_form" %}
+            </div>
+            
+        </div>
+    </div>
+
+</footer>

@@ -1,0 +1,24 @@
+{% component type: "module", source: "Site Settings", layout: "", collectionVariable: "siteSettings" %}
+{% assign siteSettings = siteSettings.items[0] -%}
+<div class="loaded-block"></div>
+<header id="header">
+    <div class="header-area" data-sticky-container>
+        <div class="holder" data-sticky data-options="marginTop:0;">
+            <div class="grid-container ">
+                <div class="logo-holder">
+                    <div class="logo ">
+                        <a href="/">
+                           <img src="{{siteSettings.Logo}}" alt="Logo">
+                        </a>
+                    </div>
+                    <div class="nav-opener" data-responsive-toggle="main-menu" data-hide-for="large">
+                        <button class="menu-icon" type="button" data-toggle="main-menu">Menu</button>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-container">
+              {% component type: "menu", alias: "main_nav" %}
+            </div>
+        </div>
+    </div>
+</header>

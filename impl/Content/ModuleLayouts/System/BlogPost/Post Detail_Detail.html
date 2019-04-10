@@ -1,0 +1,42 @@
+<div class="grid-x grid-margin-x">
+    <div class="cell small-12 medium-8">
+        <h1 class="h3">{{this['Name']}}</h1>
+        <ul class="category-list">
+            {% assign parentItemId = this['Id'] %}
+            {% capture tpl %}
+            <li><a href="?category=[[category]]">[[category]]</a></li>
+            {% endcapture %}
+            {% include "/includes/categories.inc", source: "Blog Post" %}
+            <li>Tutorials</li>
+            <li><time class="date" datetime="{{this['ReleaseDate']}}">{{this['ReleaseDate'] | date: "%B %d, %Y" }}</time></li>
+        </ul>
+        {{this['Description']}}
+    </div>
+    <aside class="cell small-12 medium-4" id="sidebar">
+        <form action="/blog-search-results" class="search-form">
+            <input type="hidden" name="prop_ModuleId" value="1528">
+            <div class="input-row">
+                <input type="text" name="prop_KeyWords" placeholder="Blog Search" value="{{request.request_url.params.prop_KeyWords}}" />
+                <input type="submit" class="button" value="Search" />
+            </div>
+        </form>
+        <div class="side-block">
+            <h3 class="h4">RECENT POSTS</h3>
+            <nav>
+                <ul class="side-nav">
+                    {% component source: "Blog Post", layout: "Recent post", filterBy: "parentid", limit: "4", type: "module" %}
+                </ul>
+            </nav>
+        </div>
+        <div class="side-block">
+            <h3 class="h4">CATEGORIES</h3>
+            <nav>
+                <ul class="side-nav">
+                    {% assign parentItemId = this['parentId'] %}
+                    {% capture tpl %}<li><a href="/blog?category=[[category]]">[[category]]</a></li>{% endcapture %}
+                    {% include "/includes/categories.inc", source: "Blog Post" %}
+                </ul>
+            </nav>
+        </div>
+    </aside>
+</div>

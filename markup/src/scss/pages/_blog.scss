@@ -1,19 +1,31 @@
 .blog-list {
+    .cell{
+        display: flex;
+    }
 
     .card {
         background: none;
         border: none;
+        display: flex;
 
-        img{
+        img {
             margin: 0;
         }
     }
 
     .card-section {
         padding: 24px 0;
+        display: flex;
+        flex-direction: column;
     }
 
- 
+    .text{
+        flex-grow: 1;
+    }
+
+    .button{
+        align-self: end;
+    }
 
     h2 {
         text-transform: none;
@@ -23,6 +35,7 @@
         margin-bottom: 1em;
     }
 }
+
 .category-list {
     @extend %listreset;
     font-size: 0;

@@ -1,0 +1,16 @@
+    <div class="search-heading grid-x  grid-margin-x">
+        <div class="title  cell small-12 medium-8">
+            <h1 class="h3">Blog Search results</h1>
+        </div>
+        <div class="cell small-12 medium-4">
+            <form action="#" class="search-form">
+                <div class="input-row">
+                    <input type="search" value="Blog Search" />
+                    <input type="submit" class="button" value="Search" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="results-wrap">
+{% component source: "Blog Post", layout: "Blog Search List", displayPagination: "true", emptyMessage: "No results found matching your query: [{{request.request_url.params.prop_KeyWords}}].", limit: "10", isSearchResult: "true", type: "module" %}
+    </div>

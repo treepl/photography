@@ -1,0 +1,11 @@
+<li class="is-active orbit-slide">
+    <blockquote class="blockquote ">
+        <q>{{this['Description'] | strip_html}}</q>
+        <cite>{{this['Name']}}</cite>
+         {% if this['Photo'].size > 0 -%}
+            <div class="photo">
+                <img src="{{this['Photo']}}" alt="{{this['Name']}}">
+            </div>
+        {% endif %}
+    </blockquote>
+</li>
