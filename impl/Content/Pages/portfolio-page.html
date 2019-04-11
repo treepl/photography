@@ -1,0 +1,15 @@
+<h1 class="h3 text-center section-heading">portfolio</h1>
+<nav>
+    <ul class="portfolio-nav filterBTNHolder ">
+        <li class="active"><a href="#"  data-filter="*">all</a></li>
+        <li ><a href="#" data-filter=".portrait">Portrait</a></li>
+        <li ><a href="#" data-filter=".studiophoto">Studio photo</a></li>
+        <li ><a href="#" data-filter=".landscape">Landscape</a></li>
+    </ul>
+</nav>
+<div class="img-section grid-x grid-padding-x small-up-2 medium-up-3 ajaxListHolder">
+    {% component source: "Portfolio", layout: "List", limit: "10", displayPagination: "true", type: "module" %}
+</div>
+<div class="text-center">
+    <a href="#" class="button  loadMoreBtn">Load more</a>
+</div>

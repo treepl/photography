@@ -1,6 +1,12 @@
 .process-block{
     margin: 0 0 15px;
     overflow: hidden;
+
+    &.animate_start{
+        .process{
+            transform: translateX(0);
+        }
+    }
     
     .title{
         display: block;
@@ -20,5 +26,7 @@
         bottom: 0;
         left: 0;
         background: $primary-color;
+        transform: translateX(-101%);
+        transition: transform 0.5s cubic-bezier(.42,0,.58,1);
     }
 }

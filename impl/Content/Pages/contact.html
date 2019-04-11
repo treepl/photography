@@ -1,0 +1,18 @@
+{% component source: "Site Settings", layout: "List", collectionVariable: "siteSettings", type: "module" %}
+{% assign siteSettings = siteSettings.items[0] -%}
+<h1 class="h3 section-heading text-center">Contacts</h1>
+<div class="grid-x grid-margin-x small-up-1 medium-up-2 ">
+    <div class="cell">
+        <figure>
+            <img src="/images/img-04.jpg" alt="">
+        </figure>
+    </div>
+    <div class="cell">
+        <p>My name is Jane Doe, and I’m a professional photographer. Hope you will like my pics and you will decide to work with me.</p>
+        <ul class="contact-list">
+            <li><i class="icon icon-telephone-handle-silhouette"></i> <a href="tel:{{siteSettings.Phone | remove:  '-' | remove: '+' | remove: ' '}}">{{siteSettings.Phone}}</a> </li>
+            <li><i class="icon icon-envelope"></i> <a href="mailto:{{siteSettings.Email}}">{{siteSettings.Email}}</a> </li>
+        </ul>
+        {% component type: "form", alias: "contact_form" %}
+    </div>
+</div>

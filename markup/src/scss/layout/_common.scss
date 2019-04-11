@@ -25,6 +25,33 @@
     @include breakpoint(medium) {
         padding: $section-indent 0;
     }
+
+    .section.bg-block {
+        background: none;
+        position: relative;
+
+        &:last-child{
+            margin-bottom: -$section-indent / 2;
+
+            @include breakpoint(medium) {
+                margin-bottom: -$section-indent;
+            }
+        }
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: -9999px;
+            right: -9999px;
+            background: $background-blocks;
+            z-index: -1;
+        }
+    }
+
+    >.grid-container>.section:first-child{
+        padding-top: 0;
+    }
 }
 
 
@@ -249,14 +276,3 @@ figure {
 }
 
 
-.button.more {
-    background: none;
-    color: $secondary-color;
-    border: solid $secondary-color;
-    border-width: 0 0 0 5px;
-    text-transform: none;
-    border-radius: 0;
-    padding-top: 0.375em;
-    padding-bottom: 0.375em;
-    font-weight: 400;
-}

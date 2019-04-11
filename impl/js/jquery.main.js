@@ -1,16 +1,34 @@
 jQuery(function () {
     initPortfolioGallery();
-	initAjaxLoadMoreFunction();
-	initComingSoonCountDown();
+	// initComingSoonCountDown();
 	initFoundation();
 	initFooterInstagram();
 	initPaginationCurrentClass();
+	initAnimateBLock();
 });
 
 $(window).load(function()
 {
+	initAjaxLoadMoreFunction();
     $('.loaded-block').fadeOut(); 
 });
+
+ function initAnimateBLock() {
+	var condition = $('.animateBlockHolder').size()
+		// && false
+		;init(condition);
+
+	function init(condition) {
+		if(condition || condition == null) {
+			$(window).load(function(){
+				$('.animateBlockHolder').viewportChecker({
+					classToAdd: 'animate_start',
+					offset: '10%'
+				});
+			});
+		}
+	}
+}
 
 function initPaginationCurrentClass() {
     var condition = $('.pagination').size()
@@ -64,22 +82,22 @@ function initFoundation() {
 }
 
 /*Coming Soon*/
-function initComingSoonCountDown() {
-    var condition = $('.comingSoonTimerHolder').size()
-        // && false
-    ;init(condition);
+// function initComingSoonCountDown() {
+//     var condition = $('.comingSoonTimerHolder').size()
+//         // && false
+//     ;init(condition);
 
-    function init(condition) {
-        if(condition || condition == null) {
-            $('.comingSoonTimerHolder').countdowntimer({
-                dateAndTime : "2019/06/06 00:00:00",
-                size : "lg",
-                regexpMatchFormat : "([0-9]{1,3}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})",
-                regexpReplaceWith : '<div class="column"> <div class="holder"> <span>$1</span> <p>days</p></div></div><div class="column"> <div class="holder"> <span>$2</span> <p>hours</p></div></div><div class="column"> <div class="holder"> <span>$3</span> <p>minutes</p></div></div><div class="column"> <div class="holder"> <span>$4</span> <p>seconds</p></div></div>'
-            });
-        }
-    }
-}
+//     function init(condition) {
+//         if(condition || condition == null) {
+//             $('.comingSoonTimerHolder').countdowntimer({
+//                 dateAndTime : "2019/06/06 00:00:00",
+//                 size : "lg",
+//                 regexpMatchFormat : "([0-9]{1,3}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})",
+//                 regexpReplaceWith : '<div class="column"> <div class="holder"> <span>$1</span> <p>days</p></div></div><div class="column"> <div class="holder"> <span>$2</span> <p>hours</p></div></div><div class="column"> <div class="holder"> <span>$3</span> <p>minutes</p></div></div><div class="column"> <div class="holder"> <span>$4</span> <p>seconds</p></div></div>'
+//             });
+//         }
+//     }
+// }
 /*End Coming Soon*/
 
 function initAjaxLoadMoreFunction()
@@ -144,16 +162,17 @@ function initAjaxLoadMoreFunction()
 						{
 							$('.loadMoreBtn').hide();
 						}
-						var sortF = $('.sortListHolder .active').attr('data-filter');
 
 						$container.append( _items ).isotope( 'appended', _items ).isotope('layout');
 
 						setTimeout(function()
 						{
-							$('.sortListHolder .active a').trigger('click');
+							$('.filterBTNHolder .active a').trigger('click');
 						},500);
 					}
 				});
+
+				// $container.isotope();
 
 				return false;
 			});

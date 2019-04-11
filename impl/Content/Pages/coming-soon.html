@@ -1,0 +1,43 @@
+{% component type: "module", source: "Site Settings", layout: "", collectionVariable: "siteSettings" %}
+{% assign siteSettings = siteSettings.items[0] -%}
+<!doctype html>
+<html lang="en">
+    <head>
+        {% include "/includes/head.inc" %}
+    </head>
+<body>
+  <div id="wrapper">
+      
+ 
+    <main role="main" id="main">
+       <div class="content" style="background-image:url(/images/bg-03.jpg);">
+                <div class="grid-container "> 
+                    <div class="coming-soon text-center">
+                        <div class="logotype">
+                            <a href="/">
+                                <img src="{{siteSettings.Logo}}" alt="Logo">
+                            </a>
+                        </div>
+                        <div class="text lead">
+                            <p>Our website is under construction</p>
+                        </div>
+                        {% component type: "snippet", alias: "coming_soon_countdown" %}
+                        <form action="/forms/cases.ashx?form=subscribe_form" name="subscribe_form"  method="post" enctype="multipart/form-data" class="subcribe-form ">
+                            <input type="hidden" name="redirectURL" value="/thank-you">
+                            <p>
+                            <label for="email-01">Subscribe to get know about updates:</label>    
+                            </p>
+                            <div class="input-row">
+                                <input type="email"  name="Email" required id="email-01" placeholder="Your email address" />
+                                <button  type="submit" class="button secondary">subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </main>
+   
+  </div>
+</body>
+
+</html>

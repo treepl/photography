@@ -17,10 +17,31 @@
         <div class="grid-container">
               <h1 class="h3 section-heading text-center">portfolio</h1>
           <div class="grid-x grid-padding-x small-up-2 medium-up-3 masonry portfolioGalleryHolder">
-          {% component source: "Portfolio", layout: "List", limit: "5", type: "module" %}
+          {% component source: "Portfolio", layout: "", limit: "5", type: "module", collectionVariable: "portfolioItems" %}
+          {% for item in portfolioItems.items %}
+          {% if forloop.first == true%}
+            <div class="cell">
+              <div class="card">
+                <a  class="holder" href="{{item['Image']}}" data-fancybox="images">
+                  <img src="{{item['Image']}}?width=368&height=524&mode=crop" alt="{{item['Name']}}">
+                </a>
+              </div>
+            </div>
+          {% else%}
+          <div class="cell">
+              <div class="card">
+                <a  class="holder" href="{{item['Image']}}" data-fancybox="images">
+                  <img src="{{item['Image']}}?width=368&height=247&mode=crop" alt="{{item['Name']}}">
+                </a>
+              </div>
+            </div>
+          {% endif%}
+          {% endfor%}
+          
+
           </div>
           <div class="text-center">
-              <a href="/portfolio" class="button">view portfolio</a>
+              <a href="/portfolio-page" class="button">view portfolio</a>
           </div>
         </div>
       </section>
