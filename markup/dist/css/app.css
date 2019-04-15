@@ -9746,7 +9746,7 @@ a.button:focus {
 
 .dropdown.menu > li.is-active > a {
 	background: transparent;
-	color: #222;
+	color: #f48c8c;
 }
 
 .no-js .dropdown.menu ul {
@@ -19653,6 +19653,10 @@ body.compensate-for-scrollbar {
 	flex-grow: 1;
 	position: relative;
 }
+.navigation .menu a:hover,
+.navigation .menu a:focus {
+	color: #f48c8c;
+}
 .navigation .menu .menu {
 	margin: 0;
 }
@@ -19679,9 +19683,15 @@ body.compensate-for-scrollbar {
 	text-transform: uppercase;
 	font-weight: 500;
 }
+.navigation ul ul {
+	padding-left: 20px;
+	padding-right: 20px;
+}
 @media print, screen and (min-width: 64em) {
 	.navigation ul ul {
 		display: none;
+		padding-left: 0;
+		padding-right: 0;
 	}
 }
 .navigation ul ul li a {
@@ -19694,11 +19704,17 @@ body.compensate-for-scrollbar {
 .navigation ul ul li a:before {
 	content: "";
 	position: absolute;
-	left: 20px;
-	right: 20px;
+	left: 1rem;
+	right: 1rem;
 	bottom: 0;
 	height: 1px;
 	background: #cacaca;
+}
+@media print, screen and (min-width: 64em) {
+	.navigation ul ul li a:before {
+		left: 20px;
+		right: 20px;
+	}
 }
 .navigation ul ul li:last-child a:before {
 	display: none;
@@ -19717,6 +19733,7 @@ body.compensate-for-scrollbar {
 	-webkit-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
+	font-size: .7rem;
 }
 
 #wrapper {
@@ -19742,6 +19759,8 @@ body.compensate-for-scrollbar {
 	-webkit-box-direction: normal;
 	-ms-flex-direction: column;
 	flex-direction: column;
+	position: relative;
+	z-index: 0;
 }
 
 .section-heading {
@@ -19961,6 +19980,13 @@ figure:before {
 		-webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
 		transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
 	}
+}
+
+.system_table tbody {
+	border: none;
+}
+.system_table tbody tr:nth-child(even) {
+	background: none;
 }
 
 [id="sidebar"] {
@@ -20404,7 +20430,7 @@ figure:before {
 	vertical-align: top;
 	font-size: .9375rem;
 	position: relative;
-	padding-right: 32px;
+	padding-right: 28px;
 }
 .category-list li:not(:last-child):before {
 	content: "/";

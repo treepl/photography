@@ -1,17 +1,13 @@
 .top-bar {
-
-
     &.nav-top {
         padding: 0;
     }
 }
 
-
-
 .navigation {
-    
+
     padding: 20px 0;
-    
+
     @include breakpoint(large) {
         display: flex;
         justify-content: space-between;
@@ -21,7 +17,7 @@
         padding: 0;
     }
 
-    >ul{
+    >ul {
         justify-content: center;
     }
 
@@ -32,11 +28,6 @@
             margin-left: -20px;
             margin-right: -20px;
         }
-
-        // @include breakpoint(xlarge) {
-        //     margin-left: -40px;
-        //     margin-right: -40px;
-        // }
 
         @media screen and #{breakpoint(xlarge)} {
             margin-left: -40px;
@@ -66,18 +57,18 @@
                     right: 0;
                 }
             }
-
-
         }
 
         a {
             flex-grow: 1;
             position: relative;
+
+            &:hover,
+            &:focus{
+                   color: $dropdown-menu-item-color-active;
+            }
         }
-
     }
-
-
 
     .menu .menu {
         margin: 0;
@@ -87,7 +78,6 @@
         }
 
         li {
-            // padding: 0 20px;
             padding: 0;
 
             &:before {
@@ -102,9 +92,6 @@
         a {
 
             flex-grow: 1;
-            // border-bottom: 1px solid $medium-gray;
-
-
         }
     }
 
@@ -115,8 +102,12 @@
     }
 
     ul ul {
+        padding-left: 20px;
+        padding-right: 20px;
         @include breakpoint(large) {
             display: none;
+            padding-left: 0;
+            padding-right: 0;
         }
 
         li {
@@ -132,11 +123,16 @@
             &:before {
                 content: "";
                 position: absolute;
-                left: 20px;
-                right: 20px;
+                left: 1rem;
+                right: 1rem;
                 bottom: 0;
                 height: 1px;
                 background: $medium-gray;
+                
+                @include breakpoint(large) {
+                    left: 20px;
+                    right: 20px;
+                }
             }
 
         }
@@ -163,8 +159,6 @@
         border: none;
         top: 50%;
         transform: translateY(-50%);
+        font-size: 0.7rem;
     }
-
-
-
 }
