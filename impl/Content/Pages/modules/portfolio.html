@@ -1,0 +1,25 @@
+<div class="header-webapp">
+    <h1>portfolio</h1>
+</div>
+<div class="nav-webapp webApp3FilterBTNHolder">
+    <ul class="nav">
+        <li class="active">
+            <a class="button btn-small" data-filter="*" href="#">all</a>
+        </li>
+        <li>
+            <a class="button btn-small" data-filter=".california" href="#">california</a>
+        </li>
+        <li>
+            <a class="button btn-small" data-filter=".creative" href="#">creative</a>
+        </li>
+        <li>
+            <a class="button btn-small" data-filter=".florida" href="#">florida</a>
+        </li>
+        <li>
+            <a class="button btn-small" data-filter=".italy" href="#">italy</a>
+        </li>
+    </ul>
+</div>
+<div class="row-holder item-section content-webapp webapp3FilterGridHolder">
+{% component source: "Portfolio", layout: "List", limit: "9", displayPagination: "true", type: "module" %}
+</div>

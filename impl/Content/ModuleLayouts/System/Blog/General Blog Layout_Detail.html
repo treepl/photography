@@ -1,40 +1,58 @@
-<div class="grid-x grid-margin-x">
-    <div class="cell small-12 medium-8">
-        <div class="blog-list">
-            <div class="grid-x grid-margin-x small-up-1 medium-up-2">
-                {% if request.request_url.params.category != nil %}
-                {% component source: "Blog Post", layout: "List", limit: "6", displayPagination: "true", filterBy:"ItemCategories", filterValue:"{{request.request_url.params.category}}", sortBy: "releasedate", sortOrder: "DESC", type:"module" %}
-                {% else %}
-                {% component source: "Blog Post", layout: "List", limit: "6", displayPagination: "true", filterBy:"parentid", sortBy: "releasedate", sortOrder: "DESC", filterValue:"{{this.id}}" , type:"module" %}
-                {% endif %}
-            </div>
-        </div>
+{% assign parentItemId = this['Id'] %}
+
+<div class="row-holder">
+    <div class="col-8">
+           
+        {% if request.request_url.params.category != nil %}
+            {% component type:"module", source: "Blog Post", layout:"List", limit: "7", filterBy:"ItemCategories", displayPagination: "true", filterValue:"{{request.request_url.params.category}}", sortBy: "releasedate", sortOrder:"DESC" %}
+        {% else %}
+            {% if request.request_url.params.isBlogSearch != null %}
+                {% component type:"module", source: "Blog Post", layout:"List", limit: "7", isSearchResult: "true", displayPagination: "true", sortBy: "releasedate", sortOrder:"DESC" %}
+            {% else %}
+                {% component type:"module", source: "Blog Post", layout:"List", limit: "7", filterBy:"parentid", displayPagination: "true", filterValue:"{{this.id}}", sortBy: "releasedate", sortOrder:"DESC" %}
+            {% endif %}
+        {% endif %}
+        
     </div>
-    <aside class="cell small-12 medium-4" id="sidebar">
-        <form action="/blog-search-results" class="search-form">
-            <input type="hidden" name="prop_ModuleId" value="1528">
-            <div class="input-row">
-                <input type="text" name="prop_KeyWords" placeholder="Blog Search" value="{{request.request_url.params.prop_KeyWords}}" />
-                <input type="submit" class="button" value="Search" />
+    <div class="col-4">
+        <aside id="sidebar">
+            <div class="color-block">
+                <section class="side-block">
+                    <div class="side-form">
+    
+                      <h1>Get Consultation</h1>
+    
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                      {% component type: "form", alias: "free_consultation_form" %}
+                  </div>
+              </section>
             </div>
-        </form>
-        <div class="side-block">
-            <h3 class="h4">RECENT POSTS</h3>
-            <nav>
-                <ul class="side-nav">
-                    {% component source: "Blog Post", layout: "Recent post", filterBy: "parentid", limit: "4", type: "module" %}
-                </ul>
-            </nav>
-        </div>
-        <div class="side-block">
-            <h3 class="h4">CATEGORIES</h3>
-            <nav>
-                <ul class="side-nav">
-                    {% assign parentItemId = this['Id'] %}
-                    {% capture tpl %}<li><a href="?category=[[category]]">[[category]]</a></li>{% endcapture %}
-                    {% include "/includes/categories.inc", source: "Blog Post" %}
-                </ul>
-            </nav>
-        </div>
-    </aside>
+            <section class="side-block category">
+            <h2>Categories</h2>
+            <ul class="side-nav">
+                {% capture tpl %}<li><a href="?category=[[category]]">[[category]]</a></li>{% endcapture %}
+                {% include "/includes/categories.inc", source: "Blog Post" %}
+            </ul>
+            </section>
+            <section class="side-block">
+                <h3>Archives</h3>
+                {% capture year %}
+                <div class="open-close month-list">
+                    <b><a href="?isBlogSearch=true&prop_ModuleId=1534&prop_ReleaseDate_Min=[[year]]-01-01&prop_ReleaseDate_Max=[[year]]-12-31&prop_ParentId={{parentItemId}}" class="opener opener-archive">[[year]] <i class="fas fa-caret-down"></i></a></b>
+                    <div class="slide">
+                        <ul class="archive-list">
+                            [[monthList]]
+                        </ul>
+                    </div>
+                </div>
+                {% endcapture %}
+                {% capture month %}
+                <li>
+                    <a href="?isBlogSearch=true&prop_ModuleId=1534&prop_ReleaseDate_Min=[[year]]-[[month]]-01&prop_ReleaseDate_Max=[[year]]-[[month]]-[[maxMonthDay]]&prop_ParentId={{parentItemId}}">[[monthName]]</a>
+                </li>
+                {% endcapture %}
+                {% include "/includes/archives.inc", source: "Blog Post" %}
+            </section>
+        </aside>
+    </div>
 </div>

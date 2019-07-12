@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="homeBuilderApp">
+    <head>
+        {% include "/includes/head.inc" %}
+    </head>
+    <body>
+    <div class="loaded-block"></div>
+        <div id="wrapper">
+            <header id="header">
+                {% component type: "snippet", alias: "header" %} 
+            </header>
+            <main id="main" role="main">
+                <div class="main-holder left-sidebar">
+                    <div class="container">
+                       {% component type: "snippet", alias: "visual-banner" %}
+                        <div class="row-holder">
+                            <div class="col-4">
+                                <aside id="sidebar">
+                                    <div class="color-block">
+                                        <section class="side-block">
+                                            {% component type: "snippet", alias: "free_consultation_form" %}
+                                        </section>
+                                    </div>
+                                    <section class="side-block">
+                                        <nav class="sidebarSubmenuPlaceHolder"></nav>
+                                    </section>
+                                    {% component type: "snippet", alias: "static_2_column_-_sidebar_content" %}
+                                </aside>
+                            </div>
+                            <div class="col-8">
+                                {{ pageContent }}
+                            </div>
+                        </div>
+                    </div>
+                    {% component type: "snippet", alias: "footer-signup-subscription" %} 
+                </div>
+            </main>
+            <div id="footer">
+            {% component type: "snippet", alias: "footer" %} 
+        	</div>
+        </div>
+    </body>
+</html>

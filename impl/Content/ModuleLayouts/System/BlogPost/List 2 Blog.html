@@ -1,0 +1,28 @@
+<div class="col-6">
+	<article class="post">
+		{% if this['Image'].size > 0 -%}
+		<div class="image-block">
+			<img src="{{this['Image']}}?width=772&height=478&mode=crop" width="772" height="478" alt="image description">
+		</div>
+		{% endif -%}
+		<h1><a href="{{this['Url']}}">{{this['Name']}}</a></h1>
+	
+		<time class="date" datetime="{{this['ReleaseDate']}}">{{this['ReleaseDate'] | date: "%B %d, %Y"}}</time>
+		{% if this['Description'].size > 0 -%}
+            <p>{{this['Description'] | strip_html | truncatewords: 15, '...'}}</p>
+        {% endif -%}
+		<footer class="meta">
+			<a class="button btn-xsmall" href="{{this['Url']}}">Learn More</a>
+			<div class="frame">
+				<div class="share-block">
+					<strong class="title">Share This</strong>
+	
+					<ul class="social-networks">
+						<li class="facebook"><a href="#">Facebook</a></li>
+						<li class="twitter"><a href="#">Twitter</a></li>
+					</ul>
+				</div>
+			</div>
+		</footer>
+	</article>
+</div>

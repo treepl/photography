@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include "/includes/head.inc" %}
+    </head>
+    <body class="coming-soon">
+    	<div id="wrapper">
+    		<main id="main" style="background-image: url(/images/bg-coming.jpg);">
+    			<section class="coming">
+    				<div class="holder-coming">
+    					<div class="holder">
+    					    <div class="logo decor">
+							    <img class="header-logo"src="{{si.si.csl}}" alt="image description">
+							</div>
+						<div>
+    						<div>
+    							<h1>{{si.si.cst}}</h1>
+    							<p>{{si.si.csd}}</p>
+    						</div>
+    						<div class="timer comingSoonTimerHolder">
+    
+    						</div>
+    						{{pageContent}}
+    				    </div>
+    			</section>
+    		</main>
+    	</div>
+    </body>
+</html>

@@ -1,42 +1,67 @@
-<div class="grid-x grid-margin-x">
-    <div class="cell small-12 medium-8">
-        <h1 class="h3">{{this['Name']}}</h1>
-        <ul class="category-list">
-            {% assign parentItemId = this['Id'] %}
-            {% capture tpl %}
-            <li><a href="?category=[[category]]">[[category]]</a></li>
-            {% endcapture %}
-            {% include "/includes/categories.inc", source: "Blog Post" %}
-            <li>Tutorials</li>
-            <li><time class="date" datetime="{{this['ReleaseDate']}}">{{this['ReleaseDate'] | date: "%B %d, %Y" }}</time></li>
-        </ul>
-        {{this['Description']}}
-    </div>
-    <aside class="cell small-12 medium-4" id="sidebar">
-        <form action="/blog-search-results" class="search-form">
-            <input type="hidden" name="prop_ModuleId" value="1528">
-            <div class="input-row">
-                <input type="text" name="prop_KeyWords" placeholder="Blog Search" value="{{request.request_url.params.prop_KeyWords}}" />
-                <input type="submit" class="button" value="Search" />
+{% assign parentItemId = this['parentId'] %}
+{% assign urlBlog = request.request_url.path | split: "/" %}
+
+<div class="main-holder">
+    <div class="container">
+        <div class="row-holder">
+            <div class="col-8">
+                <div class="post detail">
+                  	{% if this['Image'].size > 0 -%}
+                    	<div class="image-block">
+                    		<img src="{{this['Image']}}?width=772&height=478&mode=crop" width="772" height="478" alt="image description">
+                    	</div>
+                    {% endif -%}
+                    <h1>{{this['Name']}}</h1>
+                    <time class="date" datetime="{{this['ReleaseDate']}}">{{this['ReleaseDate'] | date: "%B %d, %Y"}}</time>
+                    {{this['Description']}}
+                    <div class="share-block">
+        				<strong class="title">Share This</strong>
+                				<ul class="social-networks">
+        					<li class="facebook"><a href="#">Facebook</a></li>
+        					<li class="twitter"><a href="#">Twitter</a></li>
+        				</ul>
+        			</div>
+                </div>
             </div>
-        </form>
-        <div class="side-block">
-            <h3 class="h4">RECENT POSTS</h3>
-            <nav>
-                <ul class="side-nav">
-                    {% component source: "Blog Post", layout: "Recent post", filterBy: "parentid", limit: "4", type: "module" %}
-                </ul>
-            </nav>
+            <div class="col-4">
+                <aside id="sidebar">
+                    <div class="color-block">
+                    <section class="side-block">
+                    <div class="side-form">
+                      <h1>Get Consultation</h1>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                      {% component type: "form", alias: "free_consultation_form" %}
+                      </div>
+                    </section>
+                    </div>
+                    <section class="side-block category">
+                    <h2>Categories</h2>
+                    <ul class="side-nav">
+                        {% capture tpl %}<li><a href="{{request.request_url.origin}}/{{urlBlog[0]}}?category=[[category]]">[[category]]</a></li>{% endcapture %}
+                        {% include "/includes/categories.inc", source: "Blog Post" %}
+                    </ul>
+                    </section>
+                    <section class="side-block">
+                        <h3>Archives</h3>
+                        {% capture year %}
+                            <div class="open-close month-list">
+                                <b><a href="{{request.request_url.origin}}/{{urlBlog[0]}}?isBlogSearch=true&prop_ModuleId=1534&prop_ReleaseDate_Min=[[year]]-01-01&prop_ReleaseDate_Max=[[year]]-12-31&prop_ParentId={{parentItemId}}" class="opener opener-archive">[[year]] <i class="fas fa-caret-down"></i></a></b>
+                                <div class="slide">
+                                    <ul class="archive-list">
+                                        [[monthList]]
+                                    </ul>
+                                </div>
+                            </div>
+                        {% endcapture %}
+                        {% capture month %}
+                            <li>
+                                <a href="{{request.request_url.origin}}/{{urlBlog[0]}}?isBlogSearch=true&prop_ModuleId=1534&prop_ReleaseDate_Min=[[year]]-[[month]]-01&prop_ReleaseDate_Max=[[year]]-[[month]]-[[maxMonthDay]]&prop_ParentId={{parentItemId}}">[[monthName]]</a>
+                            </li>
+                        {% endcapture %}
+                        {% include "/includes/archives.inc", source: "Blog Post" %}
+                    </section>
+                </aside>
+            </div>
         </div>
-        <div class="side-block">
-            <h3 class="h4">CATEGORIES</h3>
-            <nav>
-                <ul class="side-nav">
-                    {% assign parentItemId = this['parentId'] %}
-                    {% capture tpl %}<li><a href="/blog?category=[[category]]">[[category]]</a></li>{% endcapture %}
-                    {% include "/includes/categories.inc", source: "Blog Post" %}
-                </ul>
-            </nav>
-        </div>
-    </aside>
+    </div>
 </div>

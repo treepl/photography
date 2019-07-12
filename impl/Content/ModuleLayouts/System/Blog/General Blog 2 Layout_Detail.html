@@ -1,0 +1,58 @@
+{% assign parentItemId = this['Id'] %}
+
+<div class="row-holder">
+    <div class="col-8">
+     <div class="post-holder">
+         <div id="catblogoutput">
+            {% if request.request_url.params.category != nil %}
+            {% component type:"module", source: "Blog Post", layout:"List 2 Blog", limit: "7", filterBy:"ItemCategories", displayPagination: "true", filterValue:"{{request.request_url.params.category}}", sortBy: "releasedate", sortOrder:"DESC" %}
+            {% else %}
+            {% if request.request_url.params.isBlogSearch != null %}
+            {% component type:"module", source: "Blog Post", layout:"List 2 Blog", limit: "7", isSearchResult: "true", displayPagination: "true", sortBy: "releasedate", sortOrder:"DESC" %}
+            {% else %}
+            {% component type:"module", source: "Blog Post", layout:"List 2 Blog", limit: "7", filterBy:"parentid", displayPagination: "true", filterValue:"{{this.id}}", sortBy: "releasedate", sortOrder:"DESC" %}
+            {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+<div class="col-4">
+    <aside id="sidebar">
+        <div class="color-block">
+            <section class="side-block">
+                <div class="side-form">
+                  <h1>Get Consultation</h1>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                  {% component type: "form", alias: "free_consultation_form" %}
+              </div>
+          </section>
+      </div>
+      <section class="side-block category">
+        <h2>Categories</h2>
+        <ul class="side-nav">
+            {% capture tpl %}<li><a href="?category=[[category]]">[[category]]</a></li>{% endcapture %}
+            {% include "/includes/categories.inc", source: "Blog Post" %}
+        </ul>
+    </section>
+    <section class="side-block">
+        <h3>Archives</h3>
+        {% capture year %}
+        <div class="open-close month-list">
+            <b><a href="?isBlogSearch=true&prop_ModuleId=1534&prop_ReleaseDate_Min=[[year]]-01-01&prop_ReleaseDate_Max=[[year]]-12-31&prop_ParentId={{parentItemId}}" class="opener opener-archive">[[year]] <i class="fas fa-caret-down"></i></a></b>
+            <div class="slide">
+                <ul class="archive-list">
+                    [[monthList]]
+                </ul>
+            </div>
+        </div>
+        {% endcapture %}
+        {% capture month %}
+        <li>
+            <a href="?isBlogSearch=true&prop_ModuleId=1534&prop_ReleaseDate_Min=[[year]]-[[month]]-01&prop_ReleaseDate_Max=[[year]]-[[month]]-[[maxMonthDay]]&prop_ParentId={{parentItemId}}">[[monthName]]</a>
+        </li>
+        {% endcapture %}
+        {% include "/includes/archives.inc", source: "Blog Post" %}
+    </section>
+</aside>
+</div>
+</div>

@@ -1,0 +1,14 @@
+<div class="col-4 item">
+    <div class="holder">
+        <a href="{{this['Url']}}">
+            {% if this['Image'].size > 0 -%}
+                <div class="image-area">
+                    <img src="{{this['Image']}}?width=369&height=207&mode=crop" width="368" height="206" alt="{{this['Name']}}">
+                </div>
+            {% endif -%}
+            <div class="text-block">
+                <span>{{this['Name']}}</span>
+            </div>
+        </a>
+    </div>
+</div>

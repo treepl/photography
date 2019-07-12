@@ -1,0 +1,27 @@
+<div class="team-block">
+    <div class="img-block">
+        <a href="{{this['Url']}}"><img src="{{this['Photo']}}?width=174&height=174&mode=crop" alt="{{this['Name']}}"></a>
+    </div>
+    <div class="info">
+        <h4><a href="{{this['Url']}}">{{this['Name']}}</a></h4>
+        <span class="position">{{this['Position']}}</span>
+        <p>{{this['ShortDescription']}}</p>
+        <ul class="social">
+            {% if this['Facebook'].size > 0 -%}
+            <li><a href="{{this['Facebook']}}" target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+            {% endif -%}
+            {% if this['Instagram'].size > 0 -%}
+            <li><a href="{{this['Instagram']}}" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+            {% endif -%}
+            {% if this['Tumblr'].size > 0 -%}
+            <li><a href="{{this['Tumblr']}}" target="_blank"><i class="fab fa-tumblr" aria-hidden="true"></i></a></li>
+            {% endif -%}
+            {% if this['Rss'].size > 0 -%}
+            <li><a href="{{this['Rss']}}" target="_blank"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+            {% endif -%}
+            {% if this['Twitter'].size > 0 -%}
+            <li><a href="{{this['Twitter']}}" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+            {% endif -%}
+        </ul>
+    </div>
+</div>

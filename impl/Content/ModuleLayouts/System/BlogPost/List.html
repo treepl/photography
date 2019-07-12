@@ -1,27 +1,27 @@
-<div class="cell">
-    <div class="card">
-        <div class="img-block">
-            <img src="{{this['Image']}}">
-        </div>
-        <div class="card-section">
-            <ul class="category-list">
-                {% if this['ItemCategories'].size > 0 %}
-                {% assign categoryList = this['ItemCategories'] %}
-                {% for item in categoryList %}
-                <li>{{item}}</li>
-                {% endfor %}
-                {% endif %}
-                <li><time class="date" datetime="{{this['ReleaseDate']}}">{{this['ReleaseDate'] | date: "%B %d, %Y" }}</time></li>
-            </ul>
-            <h2 class="h5 title">{{this['Name']}}</h2>
-            {% if this['Description'].size > 0 -%}
-            <div class="text">
-                <p>{{this['Description'] | strip_html | truncatewords: 20, '.'}}</p>
-            </div>
-            {% endif -%}
-            <div class="btn-block">
-               <a class="button more" href="{{this['Url']}}">Read more...</a>
-            </div>
-        </div>
-    </div>
-</div>
+<article class="post">
+	{% if this['Image'].size > 0 -%}
+	<div class="image-block">
+		<img src="{{this['Image']}}?width=772&height=478&mode=crop" width="772" height="478" alt="image description">
+	</div>
+	{% endif -%}
+	<h1><a href="{{this['Url']}}">{{this['Name']}}</a></h1>
+
+	<time class="date" datetime="{{this['ReleaseDate']}}">{{this['ReleaseDate'] | date: "%B %d, %Y"}}</time>
+	{% if this['Description'].size > 0 -%}
+        <p>{{this['Description'] | strip_html | truncatewords: 60, '...'}}</p>
+    {% endif -%}
+	<footer class="meta">
+		<a class="button btn-xsmall" href="{{this['Url']}}">Learn More</a>
+		<div class="frame">
+			<div class="share-block">
+				<strong class="title">Share This</strong>
+
+				<ul class="social-networks">
+					<li class="facebook"><a href="#">Facebook</a></li>
+					<li class="twitter"><a href="#">Twitter</a></li>
+				</ul>
+			</div>
+			<!--<a class="link-comments" href="{{this['Url']}}">4 comments</a>-->
+		</div>
+	</footer>
+</article>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include "/includes/head.inc" %}
+    </head>
+    <body>
+    <div class="loaded-block"></div>
+        <div id="wrapper">
+            <header id="header">
+                {% component type: "snippet", alias: "header" %} 
+            </header>
+            <main id="main" role="main">
+                <div class="container">
+                    {% component type: "snippet", alias: "visual-banner" %}
+                    <div class="row-holder">
+                        <div class="col-3">
+                            <aside id="sidebar">
+                                <section class="side-block">
+                                    <div class="side-nav">
+                                        {module_menu version="2" menuId="2232228" moduleTemplateGroup="MyAccountNavigation"}
+                                    </div>
+                                </section>
+                            </aside>
+                        </div>
+                        <div class="col-9">
+                            <div class="form edit-account-form">
+                                {{ pageContent }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               {% component type: "snippet", alias: "footer-signup-subscription" %} 
+            </main>
+            <div id="footer">
+            {% component type: "snippet", alias: "footer" %} 
+        	</div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<div class="row-holder">
+    <div class="col-8">
+        <div class="our-team">
+            {% if this['Photo'].size > 0 -%}
+                <img src="{{this['Photo']}}" alt="{{this['Name']}}" class="alignleft">
+            {% endif -%}
+            <h4>{{this['Name']}}</h4>
+            <span class="position">{{this['Position']}}</span>
+            {{this['Description']}}
+        </div>
+        <a href="/modules/our_team" class="button">&#60;&#60; Go back</a>
+    </div>
+    <div class="col-4">
+        <aside id="sidebar">
+            <div class="side-block">
+                <div class="team-item-info">
+                    <h3>Contact {{this['Name']}}</h3>
+                    <ul class="listing">
+                        <li><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:{{this['PhoneNumber']}}">{{this['PhoneNumber']}}</a></li>
+                    </ul>
+                    <ul class="social-networks">
+                        {% if this['Facebook'].size > 0 -%}
+                        <li class="facebook"><a href="{{this['Facebook']}}" target="_blank">Facebook</a></li>
+                        {% endif -%}
+                        {% if this['Instagram'].size > 0 -%}
+                        <li class="instagram"><a href="{{this['Instagram']}}" target="_blank">instagram</a></li>
+                        {% endif -%}
+                        {% if this['Tumblr'].size > 0 -%}
+                        <li class="tumblr"><a href="{{this['Tumblr']}}" target="_blank">tumblr</a></li>
+                        {% endif -%}
+                        {% if this['Rss'].size > 0 -%}
+                        <li class="rss"><a href="{{this['Rss']}}" target="_blank">rss</a></li>
+                        {% endif -%}
+                        {% if this['Twitter'].size > 0 -%}
+                        <li class="twitter"><a href="{{this['Twitter']}}" target="_blank">Google plus</a></li>
+                        {% endif -%}
+                    </ul>
+                </div>
+            </div>
+            <div class="color-block">
+                <section class="side-block">
+                    {% component type: "snippet", alias: "free_consultation_form" %}
+                </section>
+            </div>
+            <section class="side-block">
+                <nav class="sidebarSubmenuPlaceHolder"></nav>
+            </section>
+
+        </aside>
+    </div>
+</div>

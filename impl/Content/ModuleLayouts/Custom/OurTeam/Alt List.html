@@ -1,0 +1,32 @@
+<div class="col-4">
+    <div class="webapp-item">
+        <div class="image-area">
+            {% if this['Photo'].size > 0 -%}
+                <a href="{{this['Url']}}" class="holder">
+                    <img src="{{this['Photo']}}?width=343&height=343&mode=crop" alt="{{this['Name']}}">
+                </a>
+            {% endif -%}
+        </div>
+    </div>
+    <div class="text-webapp">
+        <a href="#" class="link-webapp">{{this['Name']}}</a>
+        <p>{{this['ShortDescription']}}</p>
+        <ul class="social">
+            {% if this['Facebook'].size > 0 -%}
+            <li><a href="#" target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+            {% endif -%}
+            {% if this['Instagram'].size > 0 -%}
+            <li><a href="#" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+            {% endif -%}
+            {% if this['Tumblr'].size > 0 -%}
+            <li><a href="#" target="_blank"><i class="fab fa-tumblr" aria-hidden="true"></i></a></li>
+            {% endif -%}
+            {% if this['Rss'].size > 0 -%}
+            <li><a href="#" target="_blank"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+            {% endif -%}
+            {% if this['Twitter'].size > 0 -%}
+            <li><a href="#" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+            {% endif -%}
+        </ul>
+    </div>
+</div>

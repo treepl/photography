@@ -1,0 +1,31 @@
+<article class="post">
+	<div class="wrap">
+		<div class="top-holder">
+			<time class="date" datetime="{{this['ReleaseDate']}}"><span>{{this['ReleaseDate'] | date: "%A %d, %Y"}}</span></time>
+			<div class="image-block">
+				<img src="{{this['Image']}}?width=376&height=240&mode=crop" width="376" height="240" alt="{{this['Name']}}">
+			</div>
+		</div>
+		<div class="holder">
+			<div class="text">
+				<h1><a href="{{this['Url']}}">{{this['Name']}}</a></h1>
+				{% if this['Description'].size > 0 -%}
+                    <p>{{this['Description'] | strip_html | truncatewords: 30, '...'}}</p>
+                {% endif -%}
+			</div>
+			<footer class="meta">
+				<a href="{{this['Url']}}" class="button btn-xsmall">Learn More</a>
+				<div class="frame">
+					<div class="share-block">
+						<strong class="title">Share This</strong>
+						<ul class="social-networks">
+							<li class="facebook"><a href="#">Facebook</a></li>
+							<li class="twitter"><a href="#">Twitter</a></li>
+						</ul>
+					</div>
+					<!--<a href="#" class="link-comments">18 comments</a>-->
+				</div>
+			</footer>
+		</div>
+	</div>
+</article>

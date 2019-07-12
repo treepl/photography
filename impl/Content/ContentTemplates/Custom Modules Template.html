@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include "/includes/head.inc" %}
+    </head>
+    <body>
+    <div class="loaded-block"></div>
+        <div id="wrapper">
+            <header id="header">
+                {% component type: "snippet", alias: "header" %} 
+            </header>
+            <main id="main" role="main">
+                <div class="main-holder">
+                    <div class="container">
+                        {% component type: "snippet", alias: "visual-banner" %}
+                        {{ pageContent }}
+                    </div>
+                    {% component type: "snippet", alias: "footer-signup-subscription" %} 
+                </div>
+            </main>
+            <div id="footer">
+            {% component type: "snippet", alias: "footer" %} 
+        	</div>
+        </div>
+    </body>
+</html>

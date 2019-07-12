@@ -1,0 +1,5 @@
+<ul class="{{this.alias}} footer-nav">
+	  {% for item in this.items -%}
+                {% include "/Content/MenuLayouts/{{this.alias}}/{{this.layoutGroup}}/item.layout" %}
+            {% endfor -%}
+</ul>

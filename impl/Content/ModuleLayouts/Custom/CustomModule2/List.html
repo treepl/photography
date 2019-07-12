@@ -1,0 +1,14 @@
+<section class="block">
+    {% if this['ListImage'].size > 0 -%}
+         <div class="image-area">
+            <a href="{{this['Url']}}"><img src="{{this['ListImage']}}?width=572&mode=crop" width="572" height="412" alt="{{this['Name']}}"></a>
+        </div>
+    {% endif -%}
+    <div class="description">
+        <div class="frame">
+            <h1>{{this['Name']}}</h1>
+            <p>{{this['ShortDescription']}}</p>
+            <a href="{{this['Url']}}" class="button btn-small">More Info</a>
+        </div>
+    </div>
+</section>

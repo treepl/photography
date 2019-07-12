@@ -1,0 +1,83 @@
+<section class="banner-counter">
+    <div class="row-holder countersHolder">
+        <div class="col-3" data-initial="0" data-target="100" data-prefix="" data-suffix="">
+            <strong class="value">0</strong>
+            <p>Company Statistic</p>
+        </div>
+        <div class="col-3" data-initial="0" data-target="85" data-prefix="" data-suffix="">
+            <strong class="value">0</strong>
+            <p>Company Statistic</p>
+        </div>
+        <div class="col-3" data-initial="0" data-target="121" data-prefix="" data-suffix="">
+            <strong class="value">0</strong>
+            <p>Company Statistic</p>
+        </div>
+        <div class="col-3" data-initial="0" data-target="169" data-prefix="" data-suffix="">
+            <strong class="value">0</strong>
+            <p>Company Statistic</p>
+        </div>
+    </div>
+</section>
+<div class="row-holder case-study">
+    <div class="col-8">
+        <article>
+            <h1>{{this['Name']}}</h1>
+            <div class="image-slider caseStudySlider">
+                <div class="slideset">
+                    {% if this['SliderImage1'].size > 0 -%}
+                         <div class="slide">
+                            <img src="{{this['SliderImage1']}}" alt="image description">
+                        </div>
+                    {% endif -%}
+                    {% if this['SliderImage2'].size > 0 -%}
+                         <div class="slide">
+                            <img src="{{this['SliderImage2']}}" alt="image description">
+                        </div>
+                    {% endif -%}
+                    {% if this['SliderImage3'].size > 0 -%}
+                         <div class="slide">
+                            <img src="{{this['SliderImage3']}}" alt="image description">
+                        </div>
+                    {% endif -%}
+                </div>
+            </div>
+            {{this['Description']}}
+        </article>
+        <a href="/contact-us" class="button btn-long ">Contact us now</a>
+    </div>
+    <div class="col-4">
+        <aside id="sidebar">
+                <section class="side-block">
+                    <h1>Project Quick Facts</h1>
+                    <nav>
+                        <ul class="sidebar-nav">
+                        {% if this['Fact1Text'].size > 0 -%}
+                            <li><a href="{{this.['Fact1Link']}}">{{this['Fact1Text']}}</a></li>
+                        {% endif -%}
+                        {% if this['Fact2Text'].size > 0 -%}
+                            <li><a href="{{this.['Fact2Link']}}">{{this['Fact2Text']}}</a></li>
+                        {% endif -%}
+                        {% if this['Fact3Text'].size > 0 -%}
+                            <li><a href="{{this.['Fact3Link']}}">{{this['Fact3Text']}}</a></li>
+                        {% endif -%}
+                        {% if this['Fact4Text'].size > 0 -%}
+                            <li><a href="{{this.['Fact4Link']}}">{{this['Fact4Text']}}</a></li>
+                        {% endif -%}
+                        {% if this['Fact5Text'].size > 0 -%}
+                            <li><a href="{{this.['Fact5Link']}}">{{this['Fact5Text']}}</a></li>
+                        {% endif -%}
+                        {% if this['Fact6Text'].size > 0 -%}
+                            <li><a href="{{this.['Fact6Link']}}">{{this['Fact6Text']}}</a></li>
+                        {% endif -%}
+                        </ul>
+                    </nav>
+                </section>
+            <div class="color-block">
+                <section class="side-block">
+                    {% component type: "snippet", alias: "free_consultation_form" %}
+                </section>
+            </div>
+            
+        </aside>
+    </div>
+</div>
