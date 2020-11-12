@@ -1,0 +1,36 @@
+{% assign parentItemId = this['Id'] %}
+<div class="grid-x grid-margin-x">
+    <div class="cell small-12 medium-8">
+        <h1 class="h3 section-heading">Blog</h1>
+        <div class="blog-list">
+            <div class="grid-x grid-margin-x small-up-1 medium-up-2">
+                {% if request.request_url.params.isBlogSearch != null %}
+                    {% component type:"module", source: "Blog Post", layout:"List", filterBy: "parentid", filterValue:"{{parentItemId}}", sortBy: "releasedate", sortOrder: "DESC", isSearchResult: "true", limit: "6", type: "module" %}
+                    {% else %}
+                    {% component type:"module", source: "Blog Post", layout:"List", filterBy: "parentid", filterValue:"{{parentItemId}}", displayPagination: "true", sortBy: "releasedate", sortOrder: "DESC", limit: "6", type: "module" %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <aside class="cell small-12 medium-4" id="sidebar">
+        <form action="/blog-search-results" class="search-form">
+            <input type="hidden" name="prop_ModuleId" value="1534">
+            <div class="input-row">
+                <input type="search" name="prop_KeyWords" placeholder="Blog Search" value="{{request.request_url.params.prop_KeyWords}}"/>
+                <input type="submit" class="button" value="Search" />
+            </div>
+        </form>
+        <div class="side-block">
+            <h3 class="h4">RECENT POSTS</h3>
+            <nav>
+                <ul class="side-nav">
+                    {% component source: "Blog Post", layout: "Recent post", filterBy: "parentid", limit: "4", type: "module" %}
+                </ul>
+            </nav>
+        </div>
+        <div class="side-block">
+            <h3 class="h4">CATEGORIES</h3>
+            {% component type:"module_category_list",  module:"Blog Post", parentItemId:"{{parentItemId}}", layout:"/includes/category-list.layout"  %}
+        </div>
+    </aside>
+</div>

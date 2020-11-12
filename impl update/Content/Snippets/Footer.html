@@ -1,0 +1,31 @@
+<footer id="footer">
+    <div class="grid-container aside">
+        <div class="grid-x grid-padding-x small-up-1 medium-up-3">
+            <div class="cell">
+                <h3 class="h4">{{siteinformation.site_information.footer_heading_1}}</h3>
+                <p>{{siteinformation.site_information.footer_text}}</p>
+                <ul class="contact-list">
+                    <li><i class="icon icon-telephone-handle-silhouette"></i> <a href="tel:{{siteinformation.site_information.phone | remove:  '-' | remove: '+' | remove: ' '}}">{{siteinformation.site_information.phone}}</a> </li>
+                    <li><i class="icon icon-envelope"></i> <a href="mailto:{{siteinformation.site_information.email}}">{{siteinformation.site_information.email}}</a> </li>
+                </ul>
+                <ul class="social-networks">
+                    <li><a href="{{siteinformation.site_information.facebook_link}}"> <i class="icon icon-facebook"></i></a></li>
+                    <li><a href="{{siteinformation.site_information.twitter_link}}"> <i class="icon icon-twitter-logo-button"></i></a></li>
+                    <li><a href="{{siteinformation.site_information.youtube_link}}"> <i class="icon icon-youtube-logotype"></i></a></li>
+                </ul>
+            </div>
+            <div class="cell">
+                <h3 class="h4">Instagram</h3>
+                <ul class="instagram-widget" id="instafeed" data-user_id="{{siteinformation.site_information.instagram_user_id}}" data-access_token="{{siteinformation.site_information.instagram_access_token}}" data-client_id="{{siteinformation.site_information.instagram_client_id}}">
+                </ul>
+            </div>
+            <div class="cell">
+                <h3 class="h4">Subscribe</h3>
+                <p>If you want to see all of my works earlier than everybody - just click the button and follow me.</p>
+                {% component type: "form", alias: "subscribe_form" %}
+            </div>
+            
+        </div>
+    </div>
+
+</footer>

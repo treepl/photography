@@ -1,0 +1,26 @@
+<div class="timer comingSoonTimerHolder">
+     
+</div>
+
+<script type="text/javascript">
+jQuery(function () {
+	initComingSoonCountDown();
+});
+
+function initComingSoonCountDown() {
+    var condition = $('.comingSoonTimerHolder').size()
+        // && false
+    ;init(condition);
+
+    function init(condition) {
+        if(condition || condition == null) {
+            $('.comingSoonTimerHolder').countdowntimer({
+                dateAndTime : "{{siteinformation.site_information.final_date_coming_soon_page_timer_ | date: "%Y/%m/%d %k:%M:%S"}}",
+                size : "lg",
+                regexpMatchFormat : "([0-9]{1,3}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})",
+                regexpReplaceWith : '<div class="column"> <div class="holder"> <span>$1</span> <p>days</p></div></div><div class="column"> <div class="holder"> <span>$2</span> <p>hours</p></div></div><div class="column"> <div class="holder"> <span>$3</span> <p>minutes</p></div></div><div class="column"> <div class="holder"> <span>$4</span> <p>seconds</p></div></div>'
+            });
+        }
+    }
+}
+</script>

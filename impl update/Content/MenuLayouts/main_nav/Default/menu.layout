@@ -1,0 +1,8 @@
+<nav class="{{this.alias}} navigation" id="main-menu">
+    <ul class="vertical large-horizontal menu" data-responsive-menu="accordion large-dropdown" data-animate="someAnimationIn someAnimationOut">
+	{% for item in this.items -%}
+		{% include "/Content/MenuLayouts/{{this.alias}}/{{this.layoutGroup}}/item.layout" %}
+	{% endfor -%}
+	</ul>
+</nav>
+

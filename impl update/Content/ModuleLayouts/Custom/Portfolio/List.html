@@ -1,0 +1,9 @@
+{% assign tagList = this['ItemTags']  %}
+<div class="cell load-item {% for item in tagList %}{{item | downcase | replace: ' ', ''}} {% endfor %}">
+  <div class="card">
+    <a  class="holder" href="{{this['Image']}}" data-fancybox="images">
+      <img src="{{this['Image']}}?width=368&mode=crop" alt="{{this['Name']}}">
+    </a>
+  </div>
+</div>
+

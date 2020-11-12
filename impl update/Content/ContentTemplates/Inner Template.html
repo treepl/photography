@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        {% include "/includes/head.inc" %}
+    </head>
+<body>
+  <div id="wrapper">
+   {% component type: "snippet", alias: "header" %} 
+    <main role="main" id="main">
+        <div class="content">
+        <div class="grid-container">
+           {{pageContent}}
+        </div>
+      </div> 
+    </main>
+    {% component type: "snippet", alias: "footer" %} 
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<div class="results-block">
+    <div class="grid-x  grid-margin-x align-middle">
+
+        <div class="cell small-12 medium-4 large-3">
+            <a href="{{this['Url']}}">
+            <img src="{{this['Image']}}" alt="{{this['Name']}}">
+            </a>
+        </div>
+        <div class="cell small-12 medium-8 large-9">
+            <h5><a href="{{this['Url']}}">{{this['Name']}}</a></h5>
+           <ul class="category-list">
+                {% if this['ItemCategories'].size > 0 %}
+                {% assign categoryList = this['ItemCategories'] %}
+                {% for item in categoryList %}
+                <li>{{item}}</li>
+                {% endfor %}
+                {% endif %}
+                <li><time class="date" datetime="{{this['ReleaseDate']}}">{{this['ReleaseDate'] | date: "%B %d, %Y" }}</time></li>
+            </ul>
+            <p>{{this['Description'] | strip_html | truncatewords: 30, '.'}}</p>
+        </div>
+    </div>
+</div>
