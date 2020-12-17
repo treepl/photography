@@ -974,9 +974,10 @@
 }
 
 .custom-list,
+.pagination.system_pagination ul,
+.pagination ul,
 .social-networks,
 .contact-list,
-.pagination ul,
 .side-nav,
 .instagram-widget,
 .category-list,
@@ -10952,6 +10953,7 @@ a.button:focus {
 }
 
 .pagination-previous a::before,
+.pagination.system_pagination .prev a::before,
 .pagination .prev a::before,
 .pagination-previous.disabled::before,
 .pagination .disabled.prev::before {
@@ -10961,6 +10963,7 @@ a.button:focus {
 }
 
 .pagination-next a::after,
+.pagination.system_pagination .next a::after,
 .pagination .next a::after,
 .pagination-next.disabled::after,
 .pagination .disabled.next::after {
@@ -19513,6 +19516,61 @@ body.compensate-for-scrollbar {
 	z-index: -1;
 }
 
+.blog-section .pagination.system_pagination,
+.blog-list .pagination.system_pagination,
+.blog-section
+.pagination,
+.blog-list
+.pagination {
+	padding: 0 15px;
+	width: 100%;
+}
+
+.pagination.system_pagination ul,
+.pagination ul {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+
+.pagination.system_pagination li,
+.pagination li {
+	font-size: 16px;
+}
+.pagination.system_pagination li svg,
+.pagination li svg {
+	display: none;
+}
+.pagination.system_pagination li a,
+.pagination li a {
+	border: none;
+	font-size: 16px;
+	line-height: 1;
+}
+.pagination.system_pagination li a:hover,
+.pagination li a:hover {
+	background-color: #222;
+	color: white;
+}
+
+.pagination.system_pagination .current,
+.pagination .current {
+	padding: auto;
+}
+
+.pagination.system_pagination .active a,
+.pagination.system_pagination .active a:hover,
+.pagination .active a,
+.pagination .active a:hover {
+	padding: 6px 0;
+	color: #fff;
+	pointer-events: none;
+	background-color: #222;
+}
+
 [id="header"] {
 	z-index: 3;
 }
@@ -19906,19 +19964,6 @@ figure:before {
 	top: 3px;
 	left: 0;
 	font-size: 17px;
-}
-
-.blog-section .pagination,
-.blog-list .pagination {
-	padding: 0 15px;
-	width: 100%;
-}
-
-.pagination .active a,
-.pagination .active a:hover {
-	padding: 0;
-	color: #fff;
-	pointer-events: none;
 }
 
 .loaded-block {

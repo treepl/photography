@@ -164,37 +164,6 @@ figure {
 }
 
 
-.pagination {
-
-    .blog-section &,
-    .blog-list & {
-        padding: 0 15px;
-        width: 100%;
-    }
-
-    ul {
-        @extend %listreset;
-    }
-
-    .active {}
-
-    .active a,
-    .active a:hover {
-        padding: 0;
-        color: $white;
-        pointer-events: none;
-    }
-
-    .prev {
-        @extend .pagination-previous;
-    }
-
-    .next {
-        @extend .pagination-next;
-    }
-}
-
-
 .loaded-block {
     position: fixed;
     background-color: $white;

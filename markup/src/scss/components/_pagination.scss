@@ -1,0 +1,54 @@
+.pagination.system_pagination,
+.pagination {
+
+    .blog-section &,
+    .blog-list & {
+        padding: 0 15px;
+        width: 100%;
+    }
+
+    ul {
+        @extend %listreset;
+        display: flex;
+        align-items: center;
+    }
+
+    li {
+        font-size: 16px;
+
+        svg {
+            display: none;
+        }
+
+        a {
+            border: none;
+            font-size: 16px;
+            line-height: 1;
+
+            &:hover {
+                background-color: $black;
+                color: white;
+            }
+        }
+    }
+
+    .current {
+        padding: auto;
+    }
+
+    .active a,
+    .active a:hover {
+        padding: 6px 0;
+        color: $white;
+        pointer-events: none;
+        background-color: $black
+    }
+
+    .prev {
+        @extend .pagination-previous;
+    }
+
+    .next {
+        @extend .pagination-next;
+    }
+}
