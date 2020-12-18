@@ -7,7 +7,7 @@
                 {% if request.request_url.params.isBlogSearch != null %}
                     {% component type:"module", source: "Blog Post", layout:"List", filterBy: "parentid", filterValue:"{{parentItemId}}", sortBy: "releasedate", sortOrder: "DESC", isSearchResult: "true", limit: "6", type: "module" %}
                     {% else %}
-                    {% component type:"module", source: "Blog Post", layout:"List", filterBy: "parentid", filterValue:"{{parentItemId}}", displayPagination: "true", sortBy: "releasedate", sortOrder: "DESC", limit: "6", type: "module" %}
+                    {% component type:"module", source: "Blog Post", layout:"List", filterBy: "parentid", filterValue:"{{parentItemId}}", displayPagination: "true", styledPagination: "true", sortBy: "releasedate", sortOrder: "DESC", limit: "6", type: "module" %}
                 {% endif %}
             </div>
         </div>
