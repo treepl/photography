@@ -19555,6 +19555,10 @@ body.compensate-for-scrollbar {
 	background-color: #222;
 	color: white;
 }
+.pagination.system_pagination li .dots,
+.pagination li .dots {
+	border: none;
+}
 
 .pagination.system_pagination .current,
 .pagination .current {
