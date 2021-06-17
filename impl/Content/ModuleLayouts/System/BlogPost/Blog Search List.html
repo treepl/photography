@@ -12,7 +12,7 @@
                 {% if this['ItemCategories'].size > 0 %}
                 {% assign categoryList = this['ItemCategories'] %}
                 {% for item in categoryList %}
-                <li><a href="#">{{item}}</a></li>
+                <li>{{item}}</li>
                 {% endfor %}
                 {% endif %}
                 <li><time class="date" datetime="{{this['ReleaseDate']}}">{{this['ReleaseDate'] | date: "%B %d, %Y" }}</time></li>

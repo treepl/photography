@@ -1,19 +1,9 @@
-{% assign categoriesList = this.Category | split: ',' -%}
-<div class="col-4 item {% for item in categoriesList -%} {{item | downcase | replace: ' ', ''}}{% endfor -%}">
-    <div class="holder">
-        <div class="image-area">
-            {% if this['Image1'].size > 0 -%}
-                <img src="{{this['Image1']}}?width=367&mode=crop" alt="{{this['Name']}}">
-            {% endif -%}
-            <div class="description">
-                <div class="link">
-                    <a href="{{this['Url']}}"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                    <a target="_blank" href="#" class="no-click-link"><i class="fa fa-link" aria-hidden="true"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="text-block">
-            <span>{{this['Name']}}</span>
-        </div>
-    </div>
+{% assign tagList = this['ItemTags']  %}
+<div class="cell load-item {% for item in tagList %}{{item | downcase | replace: ' ', ''}} {% endfor %}">
+  <div class="card">
+    <a  class="holder" href="{{this['Image']}}" data-fancybox="images">
+      <img src="{{this['Image']}}?width=368&mode=crop" alt="{{this['Name']}}">
+    </a>
+  </div>
 </div>
+

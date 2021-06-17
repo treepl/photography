@@ -1,10 +1,17 @@
 <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{this['Name']}}</title>
-<link href="//fonts.googleapis.com/css?family=Montserrat:300,400|Open+Sans:300,300i,400,400i" rel="stylesheet">
-<link media="all" rel="stylesheet" href="/css/main.css">
-<link media="all" rel="stylesheet" href="/css/dev.css">
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="//code.jquery.com/jquery-migrate-1.2.1.js"></script>
-<script src="/js/jquery.main.js"></script>
-<script src="//use.fontawesome.com/f9ac8cd83a.js"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<link href="//fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet">
+<link rel="stylesheet" href="/css/app.min.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.1/jquery-migrate.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"></script>
+<script src="/js/plugins.js" ></script>
+<script src="/js/jquery.main.js" ></script>

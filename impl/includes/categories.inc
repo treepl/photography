@@ -2,17 +2,32 @@
 
 {% assign objectCategories = "," %}
 {% for item in allItems.items %}
-    {% for itemCategory in item.itemCategories %}
-        {% assign itemCategoryStr = "," | append: itemCategory | append: "," %}
-        {% unless objectCategories contains itemCategoryStr %}
-            {% assign objectCategories = objectCategories | append: itemCategory | append: "," %}
+    {% for itemcategory in item.itemCategories %}
+        {% assign itemCategoriestr = "," | append: itemcategory | append: "," %}
+        {% unless objectCategories contains itemCategoriestr %}
+        {% assign objectCategories = objectCategories | append: itemcategory | append: "," %}
         {% endunless %}
     {% endfor %}
 {% endfor %}
 {% assign objectCategories = objectCategories | split: "," %}
 
-{% for objectCategory in objectCategories %}
-    {% if objectCategory != "" %}
-        {{tpl | replace: "[[category]]",  objectCategory}}
+{% assign counter = '' %}
+{% for category in objectCategories %}
+    {% assign count = 0 %}
+    {% for item in allItems.items %}
+        {% for itemTag in item.itemCategories %}
+            {% if itemTag == tag %}
+                {% assign count = count | plus: 1%}
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+    {% assign counter = counter | append: count | append: ',' %}
+{% endfor %}
+
+{% assign counter = counter | split: ',' %}
+
+{% for objectCategories in objectCategories %}
+    {% if objectCategories != "" %}
+        {{tpl | replace: "[[category]]",  objectCategories | replace: "[[count]]", counter[forloop.index0]}}
     {% endif %}
 {% endfor %}

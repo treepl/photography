@@ -1,50 +1,31 @@
-<aside class="footer-holder">
-    <div class="container">
-        <div class="row-holder">
-            <nav class="footer-block">
-                <h3>Quick Links</h3>
-                {% component type: "menu", alias: "footer_menu" %}
-            </nav>
-            <section class="footer-block">
-                <h3>Services</h3>
-                <ul class="footer-nav">
-                <li><a href="/home">Home</a></li>
-                <li><a href="#">Static</a></li>
-                <li><a href="#">Content</a></li>
-                <li><a href="#">Modules</a></li>
-                <li><a href="#">Extra</a></li>
+<footer id="footer">
+    <div class="grid-container aside">
+        <div class="grid-x grid-padding-x small-up-1 medium-up-3">
+            <div class="cell">
+                <h3 class="h4">{{siteinformation.site_information.footer_heading_1}}</h3>
+                <p>{{siteinformation.site_information.footer_text}}</p>
+                <ul class="contact-list">
+                    <li><i class="icon icon-telephone-handle-silhouette"></i> <a href="tel:{{siteinformation.site_information.phone | remove:  '-' | remove: '+' | remove: ' '}}">{{siteinformation.site_information.phone}}</a> </li>
+                    <li><i class="icon icon-envelope"></i> <a href="mailto:{{siteinformation.site_information.email}}">{{siteinformation.site_information.email}}</a> </li>
                 </ul>
-            </section>
-            <section class="footer-block">
-                <h3>Request a Quote</h3>
-                {% component type: "form", alias: "request_a_quote" %}
-            </section>
-            <section class="footer-block">
-                <h3>Contact Us</h3>
-                <address>
-                    <span class="address">{{si.si.a}}</span>
-                    <span class="phone">Phone: <a href="tel:{{si.si.p}}">{{si.si.p}}</a></span>
-                    <span class="phone">Fax: <a href="tel:{{si.si.f}}">{{si.si.f}}</a></span>
-                </address>
                 <ul class="social-networks">
-                    <li class="facebook"><a href="{{si.si.fl}}">Facebook</a></li>
-                    <li class="twitter"><a href="{{si.si.tl}}">Twitter</a></li>
-                    <li class="linkedin"><a href="{{si.si.ll}}">Linkedin</a></li>
-                    <li class="googleplus"><a href="{{si.si.gpl}}">Google plus</a></li>
+                    <li><a href="{{siteinformation.site_information.facebook_link}}"> <i class="icon icon-facebook"></i></a></li>
+                    <li><a href="{{siteinformation.site_information.twitter_link}}"> <i class="icon icon-twitter-logo-button"></i></a></li>
+                    <li><a href="{{siteinformation.site_information.youtube_link}}"> <i class="icon icon-youtube-logotype"></i></a></li>
                 </ul>
-            </section>
+            </div>
+            <div class="cell">
+                <h3 class="h4">Instagram</h3>
+                <ul class="instagram-widget" id="instafeed" data-user_id="{{siteinformation.site_information.instagram_user_id}}" data-access_token="{{siteinformation.site_information.instagram_access_token}}" data-client_id="{{siteinformation.site_information.instagram_client_id}}">
+                </ul>
+            </div>
+            <div class="cell">
+                <h3 class="h4">Subscribe</h3>
+                <p>If you want to see all of my works earlier than everybody - just click the button and follow me.</p>
+                {% component type: "form", alias: "subscribe_form" %}
+            </div>
+            
         </div>
     </div>
-</aside>
-<footer class="footer-frame">
-    <div class="container">
-        <ul class="service-info">
-            <li>{{si.si.c}}</li>
-            <li><a href="#"> Terms of Use</a></li>
-            <li><a href="#">Site Map</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li>Website Design By:<a href="#"> {{si.si.cn}}</a>.</li>
-        </ul>
-    </div>
+
 </footer>
-<a class="btn-top backToTopBTN" href="#">Back to Top</a>

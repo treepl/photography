@@ -1,38 +1,22 @@
-<div class="header-holder">
-    <div class="container">
-        <div id="socialNav">
-            <ul class="social-networks">
-                <li class="facebook"><a href="{{si.si.fl}}">Facebook</a></li>
-                <li class="twitter"><a href="{{si.si.tl}}">Twitter</a></li>
-                <li class="linkedin"><a href="{{si.si.ll}}">Linkedin</a></li>
-                <li class="googleplus"><a href="{{si.si.gpl}}">Google plus</a></li>
-            </ul>
-        </div>
-        <div class="header-form">
-            <a class="search-opener searchOpenerBTN" href="#">
-                <i class="fa fa-search" aria-hidden="true"></i>
-                <i class="fa fa-times" aria-hidden="true"></i>
-            </a>
-            <form class="search-form">
-                <div class="row">
-                    <input type="search" placeholder="Search" />
-                    <button type="submit" class="search-btn"><i class="fa fa-search block-search" aria-hidden="true"></i></button>
+<div class="loaded-block"></div>
+<header id="header">
+    <div class="header-area" data-sticky-container>
+        <div class="holder" data-sticky data-options="marginTop:0;">
+            <div class="grid-container ">
+                <div class="logo-holder">
+                    <div class="logo ">
+                        <a href="/">
+                           <img src="{{siteinformation.site_information.logo}}" alt="Logo">
+                        </a>
+                    </div>
+                    <div class="nav-opener" data-responsive-toggle="main-menu" data-hide-for="large">
+                        <button class="menu-icon" type="button" data-toggle="main-menu">Menu</button>
+                    </div>
                 </div>
-            </form>
-        </div>
-        <a class="button light" href="#">Free Consultation</a>
-    </div>
-</div>
-<div class="header-frame">
-    <div class="container">
-        <div class="logo">
-            <a href="/home"><img src="{{si.si.hl}}" alt="Logo"></a>
-        </div>
-        <div class="holder">
-            <div class="info">
-                <a href="tel:{{si.si.p}}">{{si.si.p}}</a>
             </div>
-            {% component type: "menu", alias: "main_menu" %}
+            <div class="grid-container">
+              {% component type: "menu", alias: "main_nav" %}
+            </div>
         </div>
     </div>
-</div>
+</header>

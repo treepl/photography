@@ -1,0 +1,9 @@
+<nav> 
+    <ul class="side-nav">
+        {% for item in this.items %}
+            <li>
+                <a href="{{item.url}}&isBlogSearch=true" title="{{item.name}}">{{item.name}}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>
