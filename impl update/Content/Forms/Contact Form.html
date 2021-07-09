@@ -1,8 +1,11 @@
-<form action="/forms/cases.ashx?form=contact_form" name="contact_form"  method="post" enctype="multipart/form-data" class="contact-form" >
+﻿<form action="/forms/cases.ashx?form=contact_form" name="contact_form"  method="post" enctype="multipart/form-data" class="contact-form" >
     <h4>SEND me A MESSAGE</h4>
     <input type="text" id="FirstName" name="FirstName" placeholder="Your Name">
     <input type="text" id="Phone" name="Phone" placeholder="Your Name">
     <input type="email" id="Email" name="Email" placeholder="Your Email" required>
     <textarea id="Notes" name="Notes" placeholder="Whrite your question here"></textarea>
+    <script>
+     'use strict';grecaptcha.ready(function(){function c(a){grecaptcha.execute("6Ld5QIoUAAAAAKznGOlK7z6mgqJ8ajRUc3CK5M17",{action:'general_form_{{this.Alias | replace: "-","_"}}'}).then(function(b){document.querySelector(".g-recaptcha-response-v3-{{this.Alias}}").value=b;a&&a()})}window.customFormSubmit=new Event("customFormSubmit");let a=document.querySelector(".g-recaptcha-response-v3-{{this.Alias}}").closest("form");if(null!=a){let d=!0,b=0;a.onsubmit=function(){event.preventDefault();if(d)return b++,d = !1,c(function(){let c = document.getElementById("paymentFields_"+a.getAttribute("name"));c?"true"===c.dataset.paymentEnabled?(a.dispatchEvent(window.customFormSubmit),b=0,d=!0):a.submit():a.submit()}),!1;0<b&&b++;if(1<b)return alert("Form submission is in progress."),!1}}else c()}); 	</script>
+    <input type="hidden" class="g-recaptcha-response-v3-{{this.Alias}}" name="g-recaptcha-response-v3">
     <input type="submit" class="button " value="Submit">
 </form>

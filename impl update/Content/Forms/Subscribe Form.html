@@ -1,9 +1,12 @@
-
+﻿
 <form action="/forms/cases.ashx?form=subscribe_form" name="subscribe_form"  method="post" enctype="multipart/form-data" class="newsletter-form ">
     <input type="hidden" name="redirectURL" value="/thank-you">
     <label for="email-01">You will receive everything new:</label>
     <div class="input-row">
         <input type="email"  name="Email" required id="email-01" placeholder="Your email address" />
+        <script>
+         'use strict';grecaptcha.ready(function(){function c(a){grecaptcha.execute("6Ld5QIoUAAAAAKznGOlK7z6mgqJ8ajRUc3CK5M17",{action:'general_form_{{this.Alias | replace: "-","_"}}'}).then(function(b){document.querySelector(".g-recaptcha-response-v3-{{this.Alias}}").value=b;a&&a()})}window.customFormSubmit=new Event("customFormSubmit");let a=document.querySelector(".g-recaptcha-response-v3-{{this.Alias}}").closest("form");if(null!=a){let d=!0,b=0;a.onsubmit=function(){event.preventDefault();if(d)return b++,d = !1,c(function(){let c = document.getElementById("paymentFields_"+a.getAttribute("name"));c?"true"===c.dataset.paymentEnabled?(a.dispatchEvent(window.customFormSubmit),b=0,d=!0):a.submit():a.submit()}),!1;0<b&&b++;if(1<b)return alert("Form submission is in progress."),!1}}else c()}); 	</script>
+        <input type="hidden" class="g-recaptcha-response-v3-{{this.Alias}}" name="g-recaptcha-response-v3">
         <button  type="submit" class="button secondary">subscribe</button>
     </div>
 </form>
