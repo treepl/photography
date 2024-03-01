@@ -1,11 +1,21 @@
  <div class="content" style="background-image:url(/images/bg-02.jpg);">
-    <div class="grid-container">
-      <div class="service-block thank-you text-center">
-          <div class="text">
-              <h3>Thank You</h3>
-              <p class="lead">For your subscribing on our newsletter! </p>
-          </div>
-          <a href="/" class="button">go back home</a>
-      </div>
-    </div>
-</div>
+     <div class="grid-container">
+         {% if formSubmissionData == "" or formSubmissionData.error >= 1 %}
+         <div class="service-block thank-you text-center">
+             <div class="text">
+                 <h3>Error</h3>
+                 <p class="lead">{{formSubmissionData.errormessages | default : "The form wasn't submitted"}}</p>
+             </div>
+             <a href="/" class="button">go back home</a>
+         </div>
+         {% else %}
+         <div class="service-block thank-you text-center">
+             <div class="text">
+                 <h3>Thank You</h3>
+                 <p class="lead">For your subscribing on our newsletter! </p>
+             </div>
+             <a href="/" class="button">go back home</a>
+         </div>
+         {% endif %}
+     </div>
+ </div>
