@@ -1,15 +1,17 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
-    <head>
-        {% include "/includes/head.inc" %}
-    </head>
+
+<head>
+    {% include "/includes/head.inc" %}
+</head>
+
 <body>
-  <div id="wrapper">
-      
- 
-    <main role="main" id="main">
-       <div class="content" style="background-image:url(/images/bg-03.jpg);">
-                <div class="grid-container "> 
+    <div id="wrapper">
+
+
+        <main role="main" id="main">
+            <div class="content" style="background-image:url(/images/bg-03.jpg);">
+                <div class="grid-container ">
                     <div class="coming-soon text-center">
                         <div class="logotype">
                             <a href="/">
@@ -20,22 +22,61 @@
                             <p>Our website is under construction</p>
                         </div>
                         {% component type: "snippet", alias: "coming_soon_countdown" %}
-                        <form action="/forms/cases.ashx?form=subscribe_form" name="subscribe_form"  method="post" enctype="multipart/form-data" class="subcribe-form ">
+                        <form action="/forms/cases.ashx?form=subscribe_form" name="subscribe_form" method="post" enctype="multipart/form-data" class="subcribe-form ">
                             <input type="hidden" name="redirectURL" value="/thank-you">
                             <p>
-                            <label for="email-01">Subscribe to get know about updates:</label>    
+                                <label for="email-01">Subscribe to get know about updates:</label>
                             </p>
+                            <script src='https://www.google.com/recaptcha/api.js?render={{request.system_recaptcha_sitekey}}'></script>
+                            <script>
+                                'use strict';
+                                grecaptcha.ready(function() {
+                                    function e(a) {
+                                        grecaptcha.execute("{{request.system_recaptcha_sitekey}}", {
+                                            action: 'general_form_5bbb0a4e_2d8e_440f_8732_0bb6916a1970'
+                                        }).then(function(b) {
+                                            document.querySelector(".g-recaptcha-response-v3-5bbb0a4e_2d8e_440f_8732_0bb6916a1970").value = b;
+                                            a && a()
+                                        })
+                                    }
+                                    window.customFormSubmit = new Event("customFormSubmit");
+                                    let a = document.querySelector(".g-recaptcha-response-v3-5bbb0a4e_2d8e_440f_8732_0bb6916a1970").closest("form");
+                                    if (null != a) {
+                                        let d = !0,
+                                            b = 0,
+                                            c = document.getElementById("paymentFields_" + a.getAttribute("name"));
+                                        a.onsubmit = function(f) {
+                                            f.preventDefault();
+                                            if (!a.classList.contains("form-validation-error")) {
+                                                if (d) return b++, d = !1, a.CMS_CustomSubmit = new Event("CMS_CustomSubmit", {
+                                                    cancelable: !0
+                                                }), e(function() {
+                                                    c ? "true" === c.dataset.paymentEnabled ? (a.dispatchEvent(window.customFormSubmit), b = 0, d = !0) : a.dispatchEvent(window.customFormSubmit) : (a.CMS_CustomSubmit.data = {
+                                                        form: a
+                                                    }, a.dispatchEvent(a.CMS_CustomSubmit))
+                                                }), !1;
+                                                0 < b && b++;
+                                                if (1 < b) return alert("Form submission is in progress."), !1
+                                            }
+                                        };
+                                        c || a.addEventListener("CMS_CustomSubmit", function(c) {
+                                            c.defaultPrevented ? (b = 0, d = !0) : a.submit()
+                                        })
+                                    } else e()
+                                });
+                            </script>
+                            <input type="hidden" class="g-recaptcha-response-v3-5bbb0a4e_2d8e_440f_8732_0bb6916a1970" name="g-recaptcha-response-v3">
                             <div class="input-row">
-                                <input type="email"  name="Email" required id="email-01" placeholder="Your email address" />
-                                <button  type="submit" class="button secondary">subscribe</button>
+                                <input type="email" name="Email" required id="email-01" placeholder="Your email address" />
+                                <button type="submit" class="button secondary">subscribe</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-    </main>
-   
-  </div>
+        </main>
+
+    </div>
 </body>
 
 </html>
