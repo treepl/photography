@@ -16,5 +16,5 @@
 <script src="/js/plugins.js" ></script>
 <script src="/js/jquery.main.js" ></script>
 {% if this.seotitle == null or this.seotitle == "" %}
-    <title>{{this['name']}}</title>
+    <title>Trialsite</title>
 {% endif %}
