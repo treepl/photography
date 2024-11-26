@@ -15,3 +15,6 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"></script>
 <script src="/js/plugins.js" ></script>
 <script src="/js/jquery.main.js" ></script>
+{% if this.seotitle == null or this.seotitle == "" %}
+    <title>{{this['name']}}</title>
+{% endif %}
