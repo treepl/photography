@@ -53,8 +53,8 @@ module.exports = function (grunt) {
         options: {
           map: true,
           processors: [
-            require('autoprefixer-core')({
-              browsers: ['last 4 version', 'Android 4']
+            require('autoprefixer')({
+              overrideBrowserslist: ['last 4 versions', 'Android >= 4']
             })
           ]
         },
@@ -70,8 +70,8 @@ module.exports = function (grunt) {
         options: {
           map: false,
           processors: [
-            require('autoprefixer-core')({
-              browsers: ['last 4 version', 'Android 4']
+            require('autoprefixer')({
+              overrideBrowserslist: ['last 4 versions', 'Android >= 4']
             })
           ]
         },
