@@ -176,7 +176,7 @@ module.exports = function (grunt) {
       },
       images: {
         files: ['<%= config.imgSourceDir %>**/*.*'],
-        tasks: [ /*'img:jpg', 'newer:imagemin', 'newer:svgmin'*/ 'newer:copy:images', ],
+        tasks: [ /*'img:jpg', 'newer:imgopt', 'newer:svgmin'*/ 'newer:copy:images', ],
         options: {
           spawn: false
         }
@@ -223,30 +223,17 @@ module.exports = function (grunt) {
       }
     },
 
-    imagemin: {
-      dynamic: {
-        options: {
-          use: [
-            require('imagemin-jpegtran').default(),
-            require('imagemin-gifsicle')()
-          ]
-        },
-        files: [{
-          expand: true,
-          cwd: '<%= config.imgSourceDir %>',
-          src: ['**/*.{jpg,gif}'],
-          dest: '<%= config.imgDir %>'
-        }]
+    // raster image optimizing (sharp; see the imgopt task at the bottom of this file)
+    imgopt: {
+      options: {
+        // lower this if you want smaller files at the cost of visible quality
+        jpegQuality: 92
       },
-      // lossy PNG optimizing (compress png images with pngquant)
-      png: {
-        options: {
-          use: [require('imagemin-pngquant').default({speed: 3})]
-        },
+      all: {
         files: [{
           expand: true,
           cwd: '<%= config.imgSourceDir %>',
-          src: ['**/*.png'],
+          src: ['**/*.{jpg,jpeg,png}'],
           dest: '<%= config.imgDir %>'
         }]
       }
@@ -389,28 +376,81 @@ module.exports = function (grunt) {
           '<%= config.cssMainFileDir %><%= config.cssMainFileName %>.css': '<%= config.cssMainFileDir %><%= config.cssMainFileName %>.css'
         },
       }
-    },
-
-    'sftp-deploy': {
-      build: {
-        auth: {
-          host: '<%= config.sftpServer %>',
-          port: '<%= config.sftpPort %>',
-          authKey: {
-            "username": "<%= config.sftpLogin %>",
-            "password": "<%= config.sftpPas %>"
-          }
-        },
-        cache: 'sftpCache.json',
-        src: 'css',
-        dest: '<%= config.sftpDestination %>',
-        //exclusions: ['/path/to/source/folder/**/.DS_Store', '/path/to/source/folder/**/Thumbs.db', 'dist/tmp'],
-        serverSep: '/',
-        concurrency: 4,
-        progress: true
-      }
     }
 
+  });
+
+  // Raster image optimizing with sharp.
+  // Replaces grunt-contrib-imagemin: the whole imagemin-*-bin family is abandoned and
+  // pulls a permanently vulnerable binary-downloader chain (bin-wrapper/decompress/got).
+  grunt.registerMultiTask('imgopt', 'Optimize raster images with sharp', function () {
+    var done = this.async();
+    var fs = require('fs');
+    var path = require('path');
+    var sharp = require('sharp');
+    var options = this.options({
+      jpegQuality: 92,
+      pngCompressionLevel: 9
+    });
+
+    var originalBytes = 0;
+    var optimizedBytes = 0;
+    var count = 0;
+
+    function prettyBytes(bytes) {
+      return bytes > 1024 * 1024 ?
+        (bytes / 1024 / 1024).toFixed(1) + ' MB' :
+        Math.round(bytes / 1024) + ' kB';
+    }
+
+    Promise.all(this.files.map(function (f) {
+      var src = f.src[0];
+
+      if (!src || !grunt.file.exists(src)) {
+        return Promise.resolve();
+      }
+
+      var pipeline = sharp(src);
+
+      if (path.extname(src).toLowerCase() === '.png') {
+        pipeline = pipeline.png({
+          compressionLevel: options.pngCompressionLevel,
+          palette: true
+        });
+      } else {
+        pipeline = pipeline.jpeg({
+          quality: options.jpegQuality,
+          mozjpeg: true
+        });
+      }
+
+      return pipeline.toBuffer().then(function (buf) {
+        var originalSize = fs.statSync(src).size;
+
+        grunt.file.mkdir(path.dirname(f.dest));
+
+        // never let "optimizing" make a file bigger
+        if (buf.length < originalSize) {
+          fs.writeFileSync(f.dest, buf);
+          optimizedBytes += buf.length;
+        } else {
+          grunt.file.copy(src, f.dest);
+          optimizedBytes += originalSize;
+        }
+
+        originalBytes += originalSize;
+        count++;
+      });
+    })).then(function () {
+      var saved = originalBytes - optimizedBytes;
+      var percent = originalBytes > 0 ? (saved / originalBytes) * 100 : 0;
+
+      grunt.log.writeln('Optimized ' + count + ' images (saved ' +
+        prettyBytes(saved) + ' - ' + percent.toFixed(1) + '%)');
+      done();
+    }).catch(function (err) {
+      grunt.fatal(err);
+    });
   });
 
   // run task
@@ -429,16 +469,13 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', ['dev']);
 
-  // upload to server
-  grunt.registerTask('sftp', ['sftp-deploy']);
-
   //finally
   //css beautiful
   grunt.registerTask('cssbeauty', ['sass:min', //'cmq:dist',
     'postcss:dist', 'csscomb:dist'
   ]);
   //img minify
-  grunt.registerTask('imgmin', ['imagemin', 'svgmin']);
+  grunt.registerTask('imgmin', ['imgopt', 'svgmin']);
 
   //final build
   grunt.registerTask('dist', ['clean:temp', 'imgmin', 'cssbeauty']);
