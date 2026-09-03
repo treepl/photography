@@ -87,11 +87,14 @@ module.exports = function (grunt) {
 
     //sass
     sass: {
-      options: PathConfig.hasBower,
+      options: {
+        implementation: require('sass'),
+        loadPaths: ['.']
+      },
       dev: {
         options: {
           sourceMap: true,
-          style: 'nested'
+          style: 'expanded'
         },
         files: [{
             expand: true,
@@ -109,7 +112,7 @@ module.exports = function (grunt) {
       dist: {
         options: {
           sourceMap: false,
-          style: 'nested'
+          style: 'expanded'
         },
         files: [{
             expand: true,
@@ -127,7 +130,7 @@ module.exports = function (grunt) {
       min: {
         options: {
           sourceMap: false,
-          outputStyle: 'compressed'
+          style: 'compressed'
         },
         files: [{
             expand: true,
@@ -173,7 +176,7 @@ module.exports = function (grunt) {
       },
       images: {
         files: ['<%= config.imgSourceDir %>**/*.*'],
-        tasks: [ /*'img:jpg', 'newer:pngmin:all', 'newer:svgmin'*/ 'newer:copy:images', ],
+        tasks: [ /*'img:jpg', 'newer:imagemin', 'newer:svgmin'*/ 'newer:copy:images', ],
         options: {
           spawn: false
         }
@@ -222,10 +225,28 @@ module.exports = function (grunt) {
 
     imagemin: {
       dynamic: {
+        options: {
+          use: [
+            require('imagemin-jpegtran').default(),
+            require('imagemin-gifsicle')()
+          ]
+        },
         files: [{
           expand: true,
           cwd: '<%= config.imgSourceDir %>',
           src: ['**/*.{jpg,gif}'],
+          dest: '<%= config.imgDir %>'
+        }]
+      },
+      // lossy PNG optimizing (compress png images with pngquant)
+      png: {
+        options: {
+          use: [require('imagemin-pngquant').default({speed: 3})]
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= config.imgSourceDir %>',
+          src: ['**/*.png'],
           dest: '<%= config.imgDir %>'
         }]
       }
@@ -278,22 +299,6 @@ module.exports = function (grunt) {
           ]
         }
       }
-    },
-
-    // lossy image optimizing (compress png images with pngquant)
-    pngmin: {
-      all: {
-        options: {
-          ext: '.png',
-          force: true
-        },
-        files: [{
-          expand: true,
-          src: ['**/*.png'],
-          cwd: '<%= config.imgSourceDir %>',
-          dest: '<%= config.imgDir %>'
-        }]
-      },
     },
 
     //Keep multiple browsers & devices in sync when building websites.
@@ -433,7 +438,7 @@ module.exports = function (grunt) {
     'postcss:dist', 'csscomb:dist'
   ]);
   //img minify
-  grunt.registerTask('imgmin', ['imagemin', 'pngmin:all', 'svgmin']);
+  grunt.registerTask('imgmin', ['imagemin', 'svgmin']);
 
   //final build
   grunt.registerTask('dist', ['clean:temp', 'imgmin', 'cssbeauty']);
